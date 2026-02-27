@@ -21,13 +21,13 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private PlayerInput playerInput;
     private Vector2 input;
-    public Player_Combat player_Combat;
 
     private bool isKnockedBack;
     private Vector2 lastInput = Vector2.right;
     public Vector2 LastInput => lastInput;
 
     public bool IsAttacking => anim.GetBool("isAttacking");
+
     public bool IsHit
     {
         get
@@ -42,18 +42,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
-
-        PauseController.SetPause(false);
     }
 
     void Update()
     {
-        if (TimelineUI.isPaused || PauseController.IsGamePaused)
-        {
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
-
         bool isAttacking = anim.GetBool("isAttacking");
         bool isHit = IsHit;
 
@@ -104,7 +96,7 @@ public class PlayerController : MonoBehaviour
         bool isAttacking = anim.GetBool("isAttacking");
         bool isHit = IsHit;
 
-        if (!canMove || TimelineUI.isPaused || PauseController.IsGamePaused || isKnockedBack || isAttacking || isHit)
+        if (!canMove || isKnockedBack || isAttacking || isHit)
             return;
 
         if (context.performed)
@@ -113,7 +105,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isWalking", false);
             input = Vector2.zero;
 
-            player_Combat.Attack();
+            anim.SetTrigger("Attack");
 
             StartCoroutine(LockMovementUntilAttackStarts());
         }
