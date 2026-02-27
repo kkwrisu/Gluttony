@@ -17,7 +17,6 @@ public class EnemyCombat : MonoBehaviour
         if (hits.Length > 0)
         {
             hits[0].GetComponent<PlayerHealth>()?.ChangeHealth(-damage);
-            HitStopManager.Instance?.DoGlobalHitStop(0.08f);
         }
     }
 

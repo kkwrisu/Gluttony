@@ -17,7 +17,6 @@ public class PlayerHealth : MonoBehaviour
     private Color originalColor;
 
     public VidaUI ui;
-    private FogController fog;
 
     private float lastHealth = -1f;
 
@@ -33,7 +32,6 @@ public class PlayerHealth : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         ui = FindFirstObjectByType<VidaUI>();
-        fog = FindFirstObjectByType<FogController>();
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
@@ -42,12 +40,6 @@ public class PlayerHealth : MonoBehaviour
         {
             ui.SetVidaMax(maxHealth);
             ui.UpdateVidas(currentHealth);
-        }
-
-        if (fog != null)
-        {
-            float sanityPercent = (float)currentHealth / maxHealth;
-            fog.UpdateFog(sanityPercent);
         }
 
         lastHealth = currentHealth;
@@ -64,12 +56,6 @@ public class PlayerHealth : MonoBehaviour
             if (ui != null)
                 ui.UpdateVidas(currentHealth);
 
-            if (fog != null)
-            {
-                float sanityPercent = (float)currentHealth / maxHealth;
-                fog.UpdateFog(sanityPercent);
-            }
-
             if (currentHealth <= 0 && gameObject.CompareTag("Player"))
                 SceneManager.LoadScene("DeathScreen");
         }
@@ -83,12 +69,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (ui != null)
             ui.UpdateVidas(currentHealth);
-
-        if (fog != null)
-        {
-            float sanityPercent = (float)currentHealth / maxHealth;
-            fog.UpdateFog(sanityPercent);
-        }
 
         if (amount > 0)
             StartCoroutine(HealFlash());
@@ -107,9 +87,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (ui != null)
             ui.UpdateVidas(currentHealth);
-
-        if (fog != null)
-            fog.UpdateFog(1f);
 
         if (spriteRenderer != null)
             spriteRenderer.color = originalColor;
