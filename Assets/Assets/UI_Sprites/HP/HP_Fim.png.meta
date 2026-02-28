@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c598f804e0d0cd489e096183778620a
+guid: cfeb0af6ba2539f41ba0729c19d51ac2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2882934620838208687
-    second: Grama_6_0
+      213: -6328314212927873846
+    second: HP_Fim_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grama_6_0
+      name: HP_Fim_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 41
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15b534e9c32cdf7d0800000000000000
-      internalID: -2882934620838208687
+      spriteID: accd06f80cf4d28a0800000000000000
+      internalID: -6328314212927873846
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grama_6_0: -2882934620838208687
+      HP_Fim_0: -6328314212927873846
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
