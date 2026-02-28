@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,24 +8,29 @@ using UnityEditor;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movimento")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float knockbackDecay = 12f;
 
-    [Header("Controle Geral")]
+    [Header("Stamina")]
+    [SerializeField] private float maxStamina = 100f;
+    [SerializeField] private float staminaDrain = 25f;
+    [SerializeField] private float staminaRegen = 15f;
+    [SerializeField] private float regenDelay = 1f;
+    [SerializeField] private float runMultiplier = 1.8f;
+
     public bool canMove = true;
 
-    [Header("Referências")]
     private Rigidbody2D rb;
     private Animator anim;
     private PlayerInput playerInput;
     private Vector2 input;
 
-    private bool isKnockedBack;
     private Vector2 lastInput = Vector2.right;
     public Vector2 LastInput => lastInput;
 
-    public bool IsAttacking => anim.GetBool("isAttacking");
+    private float currentStamina;
+    private float regenTimer;
+
+    public float StaminaPercent => currentStamina / maxStamina;
 
     public bool IsHit
     {
@@ -42,14 +46,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
+
+        currentStamina = maxStamina;
     }
 
     void Update()
     {
-        bool isAttacking = anim.GetBool("isAttacking");
-        bool isHit = IsHit;
-
-        if (!canMove || isAttacking || isHit)
+        if (!canMove || IsHit)
         {
             rb.linearVelocity = Vector2.zero;
             anim.SetBool("isWalking", false);
@@ -58,86 +61,50 @@ public class PlayerController : MonoBehaviour
 
         input = playerInput.actions["Move"].ReadValue<Vector2>();
 
+        bool sprintPressed = playerInput.actions["Sprint"].IsPressed();
+        bool isRunning = sprintPressed && currentStamina > 0 && input != Vector2.zero;
+
+        float finalSpeed = moveSpeed;
+
+        if (isRunning)
+        {
+            finalSpeed *= runMultiplier;
+            currentStamina -= staminaDrain * Time.deltaTime;
+            regenTimer = 0f;
+        }
+        else
+        {
+            regenTimer += Time.deltaTime;
+
+            if (regenTimer >= regenDelay && currentStamina < maxStamina)
+                currentStamina += staminaRegen * Time.deltaTime;
+        }
+
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
         if (input != Vector2.zero)
         {
             anim.SetBool("isWalking", true);
             lastInput = input.normalized;
 
-            if (!isAttacking)
-            {
-                anim.SetFloat("InputX", input.x);
-                anim.SetFloat("InputY", input.y);
-            }
+            anim.SetFloat("InputX", input.x);
+            anim.SetFloat("InputY", input.y);
         }
         else
         {
             anim.SetBool("isWalking", false);
         }
 
-        if (!isKnockedBack)
-            rb.linearVelocity = input * moveSpeed;
-        else
-            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, knockbackDecay * Time.deltaTime);
+        rb.linearVelocity = input * finalSpeed;
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        bool isAttacking = anim.GetBool("isAttacking");
-
-        if (context.canceled && !isAttacking)
+        if (context.canceled)
         {
             anim.SetFloat("LastInputX", lastInput.x);
             anim.SetFloat("LastInputY", lastInput.y);
         }
-    }
-
-    public void Attack(InputAction.CallbackContext context)
-    {
-        bool isAttacking = anim.GetBool("isAttacking");
-        bool isHit = IsHit;
-
-        if (!canMove || isKnockedBack || isAttacking || isHit)
-            return;
-
-        if (context.performed)
-        {
-            rb.linearVelocity = Vector2.zero;
-            anim.SetBool("isWalking", false);
-            input = Vector2.zero;
-
-            anim.SetTrigger("Attack");
-
-            StartCoroutine(LockMovementUntilAttackStarts());
-        }
-    }
-
-    private IEnumerator LockMovementUntilAttackStarts()
-    {
-        while (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-            rb.linearVelocity = Vector2.zero;
-            yield return null;
-        }
-
-        while (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            yield return null;
-    }
-
-    public void Knockback(Transform enemy, float force, float stunTime)
-    {
-        isKnockedBack = true;
-
-        Vector2 direction = (transform.position - enemy.position).normalized;
-        rb.linearVelocity = direction * force;
-
-        StartCoroutine(KnockbackCounter(stunTime));
-    }
-
-    private IEnumerator KnockbackCounter(float stunTime)
-    {
-        yield return new WaitForSeconds(stunTime);
-        rb.linearVelocity = Vector2.zero;
-        isKnockedBack = false;
     }
 
     private void LateUpdate()
@@ -146,7 +113,6 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current != null && Keyboard.current.f10Key.wasPressedThisFrame)
         {
             moveSpeed *= 3f;
-            Debug.Log($"[DEBUG SPEED] F10 — moveSpeed agora = {moveSpeed}");
         }
 #endif
     }
