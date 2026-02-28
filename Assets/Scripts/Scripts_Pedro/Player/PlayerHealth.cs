@@ -18,8 +18,9 @@ public class PlayerHealth : MonoBehaviour
 
     public VidaUI ui;
 
-    private float lastHealth = -1f;
+    private int lastHealth = -1;
 
+    [Header("Heal Flash")]
     public float healFlashDuration = 0.3f;
     public Color healColor = new Color(0.6f, 1f, 0.6f, 1f);
 
@@ -63,7 +64,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        if (amount < 0 && isInvincible) return;
+        if (amount < 0 && isInvincible)
+            return;
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
@@ -100,6 +102,7 @@ public class PlayerHealth : MonoBehaviour
         isHealingFlash = true;
 
         float t = 0f;
+
         while (t < healFlashDuration)
         {
             float lerp = t / healFlashDuration;
@@ -111,6 +114,7 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer.color = healColor;
 
         t = 0f;
+
         while (t < healFlashDuration)
         {
             float lerp = t / healFlashDuration;
@@ -119,7 +123,7 @@ public class PlayerHealth : MonoBehaviour
             yield return null;
         }
 
-        if (!isDamageFlashing && !isInvincible)
+        if (!isDamageFlashing)
             spriteRenderer.color = originalColor;
 
         isHealingFlash = false;
@@ -132,12 +136,6 @@ public class PlayerHealth : MonoBehaviour
 
         float elapsed = 0f;
 
-        Physics2D.IgnoreLayerCollision(
-            LayerMask.NameToLayer("Player"),
-            LayerMask.NameToLayer("Enemy"),
-            true
-        );
-
         while (elapsed < invincibilityDuration)
         {
             if (spriteRenderer != null)
@@ -148,17 +146,12 @@ public class PlayerHealth : MonoBehaviour
                 spriteRenderer.color = originalColor;
                 yield return new WaitForSeconds(flashInterval);
             }
+
             elapsed += flashInterval * 2;
         }
 
         if (spriteRenderer != null && !isHealingFlash)
             spriteRenderer.color = originalColor;
-
-        Physics2D.IgnoreLayerCollision(
-            LayerMask.NameToLayer("Player"),
-            LayerMask.NameToLayer("Enemy"),
-            false
-        );
 
         isDamageFlashing = false;
         isInvincible = false;
