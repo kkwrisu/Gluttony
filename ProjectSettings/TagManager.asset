@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Tomate
+  - Batata
+  - Carne
+  - Sopa
+  - Panela
   layers:
   - Default
   - TransparentFX
@@ -12,8 +17,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - Item
+  - Enemy
   - 
   - 
   - 
