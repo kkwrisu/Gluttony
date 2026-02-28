@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c598f804e0d0cd489e096183778620a
+guid: 32103935a78f95644884ec215e6c686f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2882934620838208687
-    second: Grama_6_0
+      213: -6294824775603289423
+    second: Mureta_centro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grama_6_0
+      name: Mureta_centro_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15b534e9c32cdf7d0800000000000000
-      internalID: -2882934620838208687
+      spriteID: 1b286dec73a44a8a0800000000000000
+      internalID: -6294824775603289423
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grama_6_0: -2882934620838208687
+      Mureta_centro_0: -6294824775603289423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

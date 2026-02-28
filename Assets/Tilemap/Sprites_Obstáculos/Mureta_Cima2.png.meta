@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c598f804e0d0cd489e096183778620a
+guid: c1ecb758b7584ec4092eaff9974ca068
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2882934620838208687
-    second: Grama_6_0
+      213: -1860574380797438700
+    second: Mureta_Cima2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grama_6_0
+      name: Mureta_Cima2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15b534e9c32cdf7d0800000000000000
-      internalID: -2882934620838208687
+      spriteID: 415506a5579ed26e0800000000000000
+      internalID: -1860574380797438700
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grama_6_0: -2882934620838208687
+      Mureta_Cima2_0: -1860574380797438700
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
