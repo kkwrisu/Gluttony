@@ -60,7 +60,7 @@ public class PlayerCarrying : MonoBehaviour
         NPCInteraction npc = hit.GetComponent<NPCInteraction>();
         if (npc != null)
         {
-            npc.Interact();
+            npc.Interact(this);
             return;
         }
 

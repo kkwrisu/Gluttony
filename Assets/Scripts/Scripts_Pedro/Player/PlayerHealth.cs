@@ -59,8 +59,8 @@ public class PlayerHealth : MonoBehaviour
             if (ui != null)
                 ui.UpdateVidas(currentHealth);
 
-            if (currentHealth <= 0 && gameObject.CompareTag("Player"))
-                SceneManager.LoadScene("DeathScreen");
+            if (currentHealth <= 0)
+                Die();
         }
     }
 
@@ -84,8 +84,15 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(InvincibilityFrames());
         }
 
-        if (currentHealth <= 0 && gameObject.CompareTag("Player"))
-            SceneManager.LoadScene("DeathScreen");
+        if (currentHealth <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        if (!gameObject.CompareTag("Player")) return;
+
+        SceneManager.LoadScene("GameOver");
     }
 
     public void ResetPlayer()
