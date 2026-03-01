@@ -3,12 +3,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerCarrying : MonoBehaviour
 {
+    [Header("Referências")]
     public Transform carryPoint;
+
+    [Header("Interação")]
     public float interactRange = 1f;
     public LayerMask interactLayer;
+    public float interactCooldown = 0.3f;
+
+    [Header("Drop Settings")]
+    public float dropBlockTime = 0.2f;
 
     private PlayerInput playerInput;
     private CollectableItem carriedItem;
+
+    private float lastInteractTime;
+    private float blockInteractUntil;
 
     private void Start()
     {
@@ -19,7 +29,12 @@ public class PlayerCarrying : MonoBehaviour
     {
         if (playerInput.actions["Interact"].WasPressedThisFrame())
         {
-            TryInteract();
+            if (Time.time >= lastInteractTime + interactCooldown &&
+                Time.time >= blockInteractUntil)
+            {
+                lastInteractTime = Time.time;
+                TryInteract();
+            }
         }
     }
 
@@ -35,15 +50,37 @@ public class PlayerCarrying : MonoBehaviour
             return;
         }
 
+        CollectableItem item = hit.GetComponent<CollectableItem>();
+        if (item == null || !item.CanBePickedUp())
+            return;
+
         if (carriedItem == null)
         {
-            CollectableItem item = hit.GetComponent<CollectableItem>();
-            if (item != null && item.CanBePickedUp())
-            {
-                carriedItem = item;
-                item.PickUp(carryPoint);
-            }
+            carriedItem = item;
+            item.PickUp(carryPoint);
         }
+        else
+        {
+            SwapItem(item);
+        }
+    }
+
+    private void SwapItem(CollectableItem worldItem)
+    {
+        if (worldItem == null || carriedItem == null)
+            return;
+
+        CollectableItem oldItem = carriedItem;
+
+        Vector3 worldPosition = worldItem.transform.position;
+
+        oldItem.transform.position = worldPosition;
+        oldItem.Drop();
+
+        blockInteractUntil = Time.time + dropBlockTime;
+
+        carriedItem = worldItem;
+        worldItem.PickUp(carryPoint);
     }
 
     public void TryCollectSpecific(CollectableItem item)
@@ -61,6 +98,8 @@ public class PlayerCarrying : MonoBehaviour
 
         carriedItem.Drop();
         carriedItem = null;
+
+        blockInteractUntil = Time.time + dropBlockTime;
     }
 
     public bool IsCarryingItem()
