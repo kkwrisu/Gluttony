@@ -1,12 +1,15 @@
 using UnityEngine;
-using TMPro; // Se estiver usando TextMeshPro
+using TMPro;
 using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
     public GameObject dialoguePanel;
-    
+
+    [Header("Referência")]
+    public PlayerController player;
+
     private Queue<string> sentences = new Queue<string>();
     private bool isDialogueActive = false;
 
@@ -14,6 +17,13 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(true);
         isDialogueActive = true;
+
+        if (player != null)
+        {
+            player.canMove = false;
+            player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        }
+
         sentences.Clear();
 
         foreach (string sentence in lines)
@@ -40,6 +50,9 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
+
+        if (player != null)
+            player.canMove = true;
     }
 
     public bool IsActive => isDialogueActive;

@@ -57,6 +57,13 @@ public class PlayerCarrying : MonoBehaviour
             return;
         }
 
+        NPCInteraction npc = hit.GetComponent<NPCInteraction>();
+        if (npc != null)
+        {
+            npc.Interact();
+            return;
+        }
+
         CollectableItem item = hit.GetComponent<CollectableItem>();
         if (item == null || !item.CanBePickedUp())
             return;
