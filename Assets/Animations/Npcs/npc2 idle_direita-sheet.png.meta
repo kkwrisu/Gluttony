@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 8965921eb9c6b6945ace1e8be36744c7
+guid: 57634c558032a754d8136d4599332d6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7954320227208941153
-    second: player idle_frente_0
+      213: 842830013675775448
+    second: npc2 idle_direita-sheet_0
+  - first:
+      213: 6442088173263857399
+    second: npc2 idle_direita-sheet_1
+  - first:
+      213: -4403186546632763232
+    second: npc2 idle_direita-sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player idle_frente_0
+      name: npc2 idle_direita-sheet_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 14
+        width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16e4e745a1c636e60800000000000000
-      internalID: 7954320227208941153
+      spriteID: 8d5ae239e6552bb00800000000000000
+      internalID: 842830013675775448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc2 idle_direita-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f6232bdf05e66950800000000000000
+      internalID: 6442088173263857399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc2 idle_direita-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8dc283a2db4e2c0800000000000000
+      internalID: -4403186546632763232
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 958efa1400b271f4c8e8e777c22cee07
     internalID: 0
     vertices: []
     indices: 
@@ -146,9 +196,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      player idle_frente_0: 7954320227208941153
+      npc2 idle_direita-sheet_0: 842830013675775448
+      npc2 idle_direita-sheet_1: 6442088173263857399
+      npc2 idle_direita-sheet_2: -4403186546632763232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

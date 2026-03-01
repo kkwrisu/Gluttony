@@ -85,10 +85,14 @@ public class PlayerController : MonoBehaviour
         if (input != Vector2.zero)
         {
             anim.SetBool("isWalking", true);
+
             lastInput = input.normalized;
 
             anim.SetFloat("InputX", input.x);
             anim.SetFloat("InputY", input.y);
+
+            anim.SetFloat("LastInputX", lastInput.x);
+            anim.SetFloat("LastInputY", lastInput.y);
         }
         else
         {
