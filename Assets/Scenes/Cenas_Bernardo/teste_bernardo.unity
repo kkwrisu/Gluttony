@@ -2242,6 +2242,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 890615321}
+  - {fileID: 2002236939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3911,6 +3912,100 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87c45af6cca1e9c479b68091ae9d0b75, type: 3}
+--- !u!1 &2002236938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2002236939}
+  - component: {fileID: 2002236942}
+  - component: {fileID: 2002236941}
+  - component: {fileID: 2002236940}
+  m_Layer: 5
+  m_Name: Vida
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2002236939
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002236938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155740291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -772.1688, y: 320.01593}
+  m_SizeDelta: {x: 234.442, y: 112.361}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2002236940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002236938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcee1d2479e34ca4e80004f9051410da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarrotHealthUI
+  carrotDisplay: {fileID: 2002236941}
+  carrotStages:
+  - {fileID: 21300000, guid: cfeb0af6ba2539f41ba0729c19d51ac2, type: 3}
+  - {fileID: 21300000, guid: e5382ebd8caaa47458351c6e5c5858fd, type: 3}
+  - {fileID: 21300000, guid: 6bfb6f5328d5fb44096033f3a00237b5, type: 3}
+  - {fileID: 21300000, guid: 92474392708474447aa54f4a2aff7849, type: 3}
+--- !u!114 &2002236941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002236938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 92474392708474447aa54f4a2aff7849, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2002236942
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002236938}
+  m_CullTransparentMesh: 1
 --- !u!1 &2136226645
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,6 +4339,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3293122411653882357, guid: 7f650d52b7763924f841e4cd58d72b3e, type: 3}
+      propertyPath: carrotUI
+      value: 
+      objectReference: {fileID: 2002236940}
+    - target: {fileID: 3293122411653882357, guid: 7f650d52b7763924f841e4cd58d72b3e, type: 3}
+      propertyPath: healColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293122411653882357, guid: 7f650d52b7763924f841e4cd58d72b3e, type: 3}
+      propertyPath: healColor.b
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293122411653882357, guid: 7f650d52b7763924f841e4cd58d72b3e, type: 3}
+      propertyPath: healColor.g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293122411653882357, guid: 7f650d52b7763924f841e4cd58d72b3e, type: 3}
+      propertyPath: healColor.r
+      value: 0.64705884
+      objectReference: {fileID: 0}
     - target: {fileID: 3731105026914877827, guid: 7f650d52b7763924f841e4cd58d72b3e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.96
