@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c914155d9c0f3146bbbbb1d882723ad
+guid: 6b7710fa372746b4b9993d2125f9acb9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3370753968625656147
-    second: "Fog\xE3o_Sem_Panela_0"
+      213: -6818804961175114340
+    second: Bancada_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Fog\xE3o_Sem_Panela_0"
+      name: Bancada_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dae54d2ef1da831d0800000000000000
-      internalID: -3370753968625656147
+      spriteID: c9d6c70f30dbe51a0800000000000000
+      internalID: -6818804961175114340
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Fog\xE3o_Sem_Panela_0": -3370753968625656147
+      Bancada_1_0: -6818804961175114340
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
