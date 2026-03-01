@@ -50,6 +50,13 @@ public class PlayerCarrying : MonoBehaviour
             return;
         }
 
+        Workbench bench = hit.GetComponent<Workbench>();
+        if (bench != null)
+        {
+            bench.Interact(this);
+            return;
+        }
+
         CollectableItem item = hit.GetComponent<CollectableItem>();
         if (item == null || !item.CanBePickedUp())
             return;
@@ -81,6 +88,19 @@ public class PlayerCarrying : MonoBehaviour
 
         carriedItem = worldItem;
         worldItem.PickUp(carryPoint);
+    }
+
+    public void ForcePickUp(CollectableItem item)
+    {
+        if (item == null) return;
+
+        carriedItem = item;
+        item.PickUp(carryPoint);
+    }
+
+    public void ClearCarriedItem()
+    {
+        carriedItem = null;
     }
 
     public void TryCollectSpecific(CollectableItem item)
