@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float staminaRegen = 15f;
     [SerializeField] private float regenDelay = 1f;
     [SerializeField] private float runMultiplier = 1.8f;
+    
+    // Referência para a UI da estamina
+    public StaminaUI staminaUI;
 
     public bool canMove = true;
 
@@ -48,6 +51,9 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         currentStamina = maxStamina;
+        
+        // Atualiza UI no início
+        if (staminaUI != null) staminaUI.UpdateStaminaUI(StaminaPercent);
     }
 
     void Update()
@@ -81,16 +87,17 @@ public class PlayerController : MonoBehaviour
         }
 
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        
+        // Atualiza a barra de estamina na tela
+        if (staminaUI != null) staminaUI.UpdateStaminaUI(StaminaPercent);
 
         if (input != Vector2.zero)
         {
             anim.SetBool("isWalking", true);
-
             lastInput = input.normalized;
 
             anim.SetFloat("InputX", input.x);
             anim.SetFloat("InputY", input.y);
-
             anim.SetFloat("LastInputX", lastInput.x);
             anim.SetFloat("LastInputY", lastInput.y);
         }
