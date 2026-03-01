@@ -10,25 +10,40 @@ public class Workbench : MonoBehaviour
     {
         if (player == null) return;
 
-        if (player.IsCarryingItem())
-        {
-            if (storedItem != null) return;
+        bool playerHasItem = player.IsCarryingItem();
 
+        if (playerHasItem && storedItem == null)
+        {
             CollectableItem item = player.GetCarriedItem();
             storedItem = item;
 
             player.ClearCarriedItem();
-
             item.PlaceOnSurface(placePoint);
-        }
-        else
-        {
-            if (storedItem == null) return;
 
+            return;
+        }
+
+        if (!playerHasItem && storedItem != null)
+        {
             CollectableItem item = storedItem;
             storedItem = null;
 
             player.ForcePickUp(item);
+
+            return;
+        }
+
+        if (playerHasItem && storedItem != null)
+        {
+            CollectableItem playerItem = player.GetCarriedItem();
+            CollectableItem benchItem = storedItem;
+
+            player.ClearCarriedItem();
+            playerItem.PlaceOnSurface(placePoint);
+
+            player.ForcePickUp(benchItem);
+
+            storedItem = playerItem;
         }
     }
 }

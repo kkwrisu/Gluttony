@@ -2155,13 +2155,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6565929616217112596, guid: 7c63fead57ae7d841948677dd8d52b88, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7039398814935721129, guid: 7c63fead57ae7d841948677dd8d52b88, type: 3}
       propertyPath: m_Name
       value: "Fog\xE3o"
       objectReference: {fileID: 0}
     - target: {fileID: 8715032885699496446, guid: 7c63fead57ae7d841948677dd8d52b88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.495979
+      value: 8.45
       objectReference: {fileID: 0}
     - target: {fileID: 8715032885699496446, guid: 7c63fead57ae7d841948677dd8d52b88, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3666,6 +3670,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 193356230920498181, guid: 9dce91c5630f36b498f71c9a6ee3362f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.362
+      objectReference: {fileID: 0}
     - target: {fileID: 2716605392695164458, guid: 9dce91c5630f36b498f71c9a6ee3362f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.5
