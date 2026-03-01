@@ -18,13 +18,16 @@ public class PlayerHealth : MonoBehaviour
 
     public VidaUI ui;
 
-    private float lastHealth = -1f;
+    private int lastHealth = -1;
 
+    [Header("Heal Flash")]
     public float healFlashDuration = 0.3f;
     public Color healColor = new Color(0.6f, 1f, 0.6f, 1f);
 
     private bool isHealingFlash = false;
     private bool isDamageFlashing = false;
+
+    private PlayerCarrying carry;
 
     private void Start()
     {
@@ -32,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         ui = FindFirstObjectByType<VidaUI>();
+        carry = GetComponent<PlayerCarrying>();
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
@@ -50,7 +54,6 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth != lastHealth)
         {
             lastHealth = currentHealth;
-
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
             if (ui != null)
@@ -74,7 +77,12 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(HealFlash());
 
         if (amount < 0)
+        {
+            if (carry != null && carry.IsCarryingItem())
+                carry.DropItem();
+
             StartCoroutine(InvincibilityFrames());
+        }
 
         if (currentHealth <= 0 && gameObject.CompareTag("Player"))
             SceneManager.LoadScene("DeathScreen");
@@ -98,28 +106,26 @@ public class PlayerHealth : MonoBehaviour
         if (isDamageFlashing || isInvincible) yield break;
 
         isHealingFlash = true;
-
         float t = 0f;
+
         while (t < healFlashDuration)
         {
-            float lerp = t / healFlashDuration;
-            spriteRenderer.color = Color.Lerp(originalColor, healColor, lerp);
+            spriteRenderer.color = Color.Lerp(originalColor, healColor, t / healFlashDuration);
             t += Time.deltaTime;
             yield return null;
         }
 
         spriteRenderer.color = healColor;
-
         t = 0f;
+
         while (t < healFlashDuration)
         {
-            float lerp = t / healFlashDuration;
-            spriteRenderer.color = Color.Lerp(healColor, originalColor, lerp);
+            spriteRenderer.color = Color.Lerp(healColor, originalColor, t / healFlashDuration);
             t += Time.deltaTime;
             yield return null;
         }
 
-        if (!isDamageFlashing && !isInvincible)
+        if (!isDamageFlashing)
             spriteRenderer.color = originalColor;
 
         isHealingFlash = false;
@@ -132,19 +138,12 @@ public class PlayerHealth : MonoBehaviour
 
         float elapsed = 0f;
 
-        Physics2D.IgnoreLayerCollision(
-            LayerMask.NameToLayer("Player"),
-            LayerMask.NameToLayer("Enemy"),
-            true
-        );
-
         while (elapsed < invincibilityDuration)
         {
             if (spriteRenderer != null)
             {
                 spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
                 yield return new WaitForSeconds(flashInterval);
-
                 spriteRenderer.color = originalColor;
                 yield return new WaitForSeconds(flashInterval);
             }
@@ -153,12 +152,6 @@ public class PlayerHealth : MonoBehaviour
 
         if (spriteRenderer != null && !isHealingFlash)
             spriteRenderer.color = originalColor;
-
-        Physics2D.IgnoreLayerCollision(
-            LayerMask.NameToLayer("Player"),
-            LayerMask.NameToLayer("Enemy"),
-            false
-        );
 
         isDamageFlashing = false;
         isInvincible = false;
