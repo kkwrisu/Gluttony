@@ -3962,7 +3962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcee1d2479e34ca4e80004f9051410da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarrotHealthUI
-  carrotDisplay: {fileID: 2002236941}
+  carrotDisplay: {fileID: 0}
   carrotStages:
   - {fileID: 21300000, guid: cfeb0af6ba2539f41ba0729c19d51ac2, type: 3}
   - {fileID: 21300000, guid: e5382ebd8caaa47458351c6e5c5858fd, type: 3}
