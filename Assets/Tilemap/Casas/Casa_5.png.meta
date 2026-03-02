@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: facf6d34aa3ac43499b8b395b0efcba5
+guid: ca9177bfc38155a4daa68815fce8d1fe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5132320054403925397
-    second: Muro_Tiojo_0
+      213: -522735674063995796
+    second: Casa_5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Muro_Tiojo_0
+      name: Casa_5_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 14
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5950c54b5e9a93740800000000000000
-      internalID: 5132320054403925397
+      spriteID: c6cbdfb8caedeb8f0800000000000000
+      internalID: -522735674063995796
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Muro_Tiojo_0: 5132320054403925397
+      Casa_5_0: -522735674063995796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

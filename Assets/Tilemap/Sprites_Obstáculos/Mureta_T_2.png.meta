@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7023953affc31eb48b13e40cf9ee0136
+guid: fe3c734b8d615ba4eb51468fc8f564d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 329630084398299350
-    second: Muro_Tijolo_Cima_0
+      213: 6350901873607931521
+    second: Mureta_T_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Muro_Tijolo_Cima_0
+      name: Mureta_T_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d8b7d7b0d4139400800000000000000
-      internalID: 329630084398299350
+      spriteID: 18673c30b9fe22850800000000000000
+      internalID: 6350901873607931521
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Muro_Tijolo_Cima_0: 329630084398299350
+      Mureta_T_2_0: 6350901873607931521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

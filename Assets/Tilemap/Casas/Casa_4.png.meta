@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4590b2eb9e7c7674890c87fdcbcd38b3
+guid: aec4a3c43d9ee6f4ea92d3c5c5b4e27a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7037544652042496775
-    second: "Mureta_T de Tes\xE3o_0"
+      213: 743242093838835029
+    second: Casa_4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Mureta_T de Tes\xE3o_0"
+      name: Casa_4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70b61f313916aa160800000000000000
-      internalID: 7037544652042496775
+      spriteID: 55d91691fb6805a00800000000000000
+      internalID: 743242093838835029
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Mureta_T de Tes\xE3o_0": 7037544652042496775
+      Casa_4_0: 743242093838835029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
