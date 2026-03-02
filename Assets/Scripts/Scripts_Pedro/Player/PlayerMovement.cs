@@ -16,8 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float staminaRegen = 15f;
     [SerializeField] private float regenDelay = 1f;
     [SerializeField] private float runMultiplier = 1.8f;
-    
-    // Referência para a UI da estamina
+
     public StaminaUI staminaUI;
 
     public bool canMove = true;
@@ -25,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private PlayerInput playerInput;
+    private PlayerCarrying playerCarrying;
+
     private Vector2 input;
 
     private Vector2 lastInput = Vector2.right;
@@ -49,11 +50,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
+        playerCarrying = GetComponent<PlayerCarrying>();
 
         currentStamina = maxStamina;
-        
-        // Atualiza UI no início
-        if (staminaUI != null) staminaUI.UpdateStaminaUI(StaminaPercent);
+
+        if (staminaUI != null)
+            staminaUI.UpdateStaminaUI(StaminaPercent);
     }
 
     void Update()
@@ -66,6 +68,11 @@ public class PlayerController : MonoBehaviour
         }
 
         input = playerInput.actions["Move"].ReadValue<Vector2>();
+
+        if (playerCarrying != null)
+        {
+            anim.SetBool("isCarrying", playerCarrying.IsCarryingItem());
+        }
 
         bool sprintPressed = playerInput.actions["Sprint"].IsPressed();
         bool isRunning = sprintPressed && currentStamina > 0 && input != Vector2.zero;
@@ -87,9 +94,9 @@ public class PlayerController : MonoBehaviour
         }
 
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-        
-        // Atualiza a barra de estamina na tela
-        if (staminaUI != null) staminaUI.UpdateStaminaUI(StaminaPercent);
+
+        if (staminaUI != null)
+            staminaUI.UpdateStaminaUI(StaminaPercent);
 
         if (input != Vector2.zero)
         {
