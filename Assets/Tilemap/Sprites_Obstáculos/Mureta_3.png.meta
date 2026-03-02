@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be406e0bb5489684baf1cbfca1da6bf6
+guid: 2d3430ca58bfc01448969dae78421cef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5077976756712849500
-    second: "Canto_Cal\xE7ada_0"
+      213: -6689246434901042093
+    second: Mureta_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Canto_Cal\xE7ada_0"
+      name: Mureta_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c504f89b4f8987640800000000000000
-      internalID: 5077976756712849500
+      spriteID: 35cdca00fc50b23a0800000000000000
+      internalID: -6689246434901042093
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Canto_Cal\xE7ada_0": 5077976756712849500
+      Mureta_3_0: -6689246434901042093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
