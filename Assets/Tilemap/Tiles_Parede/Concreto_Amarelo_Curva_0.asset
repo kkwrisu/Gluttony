@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Mureta_Baixo_Troca_1_0
+  m_Name: Concreto_Amarelo_Curva_0
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: 7579762670398899618, guid: 274f930fadc231e4f8ac8952368d77af, type: 3}
+  m_Sprite: {fileID: -4278602673852770820, guid: 66ec281f36f41e24ba38028f4694034e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
