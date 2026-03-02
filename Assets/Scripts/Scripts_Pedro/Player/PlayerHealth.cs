@@ -7,7 +7,6 @@ public class PlayerHealth : MonoBehaviour
     [Header("Vida")]
     public int currentHealth;
     public int maxHealth;
-    // Referência adicionada para o sistema de UI da Cenoura
     public CarrotHealthUI carrotUI;
 
     [Header("Invencibilidade")]
@@ -17,8 +16,6 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-
-    public VidaUI ui;
 
     private int lastHealth = -1;
 
@@ -36,20 +33,13 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        ui = FindFirstObjectByType<VidaUI>();
         carry = GetComponent<PlayerCarrying>();
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
 
-        if (ui != null)
-        {
-            ui.SetVidaMax(maxHealth);
-            ui.UpdateVidas(currentHealth);
-        }
-
-        // Atualização inicial da cenoura
-        if (carrotUI != null) carrotUI.UpdateHealthUI(currentHealth);
+        if (carrotUI != null)
+            carrotUI.UpdateHealthUI(currentHealth);
 
         lastHealth = currentHealth;
     }
@@ -61,11 +51,8 @@ public class PlayerHealth : MonoBehaviour
             lastHealth = currentHealth;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-            if (ui != null)
-                ui.UpdateVidas(currentHealth);
-
-            // Atualiza a cenoura caso a vida mude externamente
-            if (carrotUI != null) carrotUI.UpdateHealthUI(currentHealth);
+            if (carrotUI != null)
+                carrotUI.UpdateHealthUI(currentHealth);
 
             if (currentHealth <= 0)
                 Die();
@@ -78,11 +65,8 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
-        if (ui != null)
-            ui.UpdateVidas(currentHealth);
-        
-        // Atualiza a cenoura ao alterar vida
-        if (carrotUI != null) carrotUI.UpdateHealthUI(currentHealth);
+        if (carrotUI != null)
+            carrotUI.UpdateHealthUI(currentHealth);
 
         if (amount > 0)
             StartCoroutine(HealFlash());
@@ -111,11 +95,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         isInvincible = false;
 
-        if (ui != null)
-            ui.UpdateVidas(currentHealth);
-
-        // Atualiza a cenoura ao resetar
-        if (carrotUI != null) carrotUI.UpdateHealthUI(currentHealth);
+        if (carrotUI != null)
+            carrotUI.UpdateHealthUI(currentHealth);
 
         if (spriteRenderer != null)
             spriteRenderer.color = originalColor;
@@ -165,9 +146,11 @@ public class PlayerHealth : MonoBehaviour
             {
                 spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
                 yield return new WaitForSeconds(flashInterval);
+
                 spriteRenderer.color = originalColor;
                 yield return new WaitForSeconds(flashInterval);
             }
+
             elapsed += flashInterval * 2;
         }
 

@@ -5,8 +5,19 @@ using System.Collections.Generic;
 public class CookingPot : MonoBehaviour
 {
     [Header("Configurações")]
-    public float cookingTime = 30f;
-    public SpriteRenderer visualIndicator;
+    public float cookingTime = 15f;
+
+    [Header("Relógio Visual")]
+    [SerializeField] private SpriteRenderer clockRenderer;
+    [SerializeField] private Sprite[] clockSprites;
+
+    [Header("Sopa Pronta")]
+    [SerializeField] private Sprite[] steamFrames;
+    [SerializeField] private float steamFrameRate = 0.3f;
+
+    [Header("Áudio")]
+    public AudioClip soupReadySound;
+    private AudioSource audioSource;
 
     [Header("Prefabs das Sopas")]
     public CollectableItem sopaBatataCarnePrefab;
@@ -19,16 +30,18 @@ public class CookingPot : MonoBehaviour
     private List<IngredientType> currentIngredients = new List<IngredientType>();
     private CollectableItem resultSoupPrefab;
 
+    private Coroutine steamCoroutine;
+
     private void Start()
     {
-        if (visualIndicator != null)
-            visualIndicator.enabled = false;
+        audioSource = GetComponent<AudioSource>();
+
+        if (clockRenderer != null)
+            clockRenderer.gameObject.SetActive(false);
     }
 
     public void Interact(PlayerCarrying playerCarry)
     {
-        Debug.Log("Interagindo com a panela");
-
         if (playerCarry == null)
             return;
 
@@ -39,10 +52,7 @@ public class CookingPot : MonoBehaviour
         }
 
         if (isCooking)
-        {
-            Debug.Log("Já está cozinhando...");
             return;
-        }
 
         if (playerCarry.IsCarryingItem())
         {
@@ -50,45 +60,28 @@ public class CookingPot : MonoBehaviour
             if (heldItem != null)
                 TryAddIngredient(heldItem, playerCarry);
         }
-        else
-        {
-            Debug.Log("Jogador não está carregando nada.");
-        }
     }
 
     private void TryAddIngredient(CollectableItem item, PlayerCarrying playerCarry)
     {
         IngredientType ingredient = item.itemType;
 
-        Debug.Log("Tentando adicionar: " + ingredient);
-
         if (!IsValidIngredient(ingredient))
-        {
-            Debug.Log("Ingrediente inválido.");
             return;
-        }
 
         if (currentIngredients.Contains(ingredient))
-        {
-            Debug.Log("Ingrediente repetido.");
             return;
-        }
 
         if (IsVegetable(ingredient))
         {
             foreach (var ing in currentIngredients)
             {
                 if (IsVegetable(ing))
-                {
-                    Debug.Log("Já existe um vegetal na panela.");
                     return;
-                }
             }
         }
 
         currentIngredients.Add(ingredient);
-
-        Debug.Log("Ingrediente adicionado com sucesso.");
 
         playerCarry.DropItem();
         Destroy(item.gameObject);
@@ -99,43 +92,20 @@ public class CookingPot : MonoBehaviour
 
     private void CheckRecipe()
     {
-        Debug.Log("=== Verificando Receita ===");
-
-        foreach (var ing in currentIngredients)
-            Debug.Log("Ingrediente: " + ing);
-
         bool hasCarne = currentIngredients.Contains(IngredientType.Carne);
         bool hasSal = currentIngredients.Contains(IngredientType.Sal);
 
-        Debug.Log("Tem Carne? " + hasCarne);
-        Debug.Log("Tem Sal? " + hasSal);
-
         if (!hasCarne || !hasSal)
-        {
-            Debug.Log("Receita incompleta. Precisa de Carne e Sal.");
             return;
-        }
 
         if (currentIngredients.Contains(IngredientType.Batata))
-        {
             resultSoupPrefab = sopaBatataCarnePrefab;
-            Debug.Log("Receita válida: Sopa de Batata com Carne");
-        }
         else if (currentIngredients.Contains(IngredientType.Cenoura))
-        {
             resultSoupPrefab = sopaCenouraCarnePrefab;
-            Debug.Log("Receita válida: Sopa de Cenoura com Carne");
-        }
         else if (currentIngredients.Contains(IngredientType.Tomate))
-        {
             resultSoupPrefab = sopaTomateCarnePrefab;
-            Debug.Log("Receita válida: Sopa de Tomate com Carne");
-        }
         else
-        {
-            Debug.Log("Nenhum vegetal válido encontrado.");
             return;
-        }
 
         StartCoroutine(CookSoup());
     }
@@ -143,24 +113,41 @@ public class CookingPot : MonoBehaviour
     private IEnumerator CookSoup()
     {
         isCooking = true;
+        isReady = false;
 
-        if (visualIndicator != null)
+        if (clockRenderer == null || clockSprites.Length == 0)
+            yield break;
+
+        clockRenderer.gameObject.SetActive(true);
+
+        float timePerSprite = cookingTime / clockSprites.Length;
+
+        for (int i = 0; i < clockSprites.Length; i++)
         {
-            visualIndicator.enabled = true;
-            visualIndicator.color = Color.yellow;
+            clockRenderer.sprite = clockSprites[i];
+            yield return new WaitForSeconds(timePerSprite);
         }
-
-        Debug.Log("Cozinhando...");
-
-        yield return new WaitForSeconds(cookingTime);
 
         isCooking = false;
         isReady = true;
 
-        if (visualIndicator != null)
-            visualIndicator.color = Color.green;
+        PlayReadySound();
 
-        Debug.Log("Sopa pronta!");
+        if (steamFrames.Length > 0)
+            steamCoroutine = StartCoroutine(AnimateSteam());
+    }
+
+    private IEnumerator AnimateSteam()
+    {
+        int index = 0;
+
+        while (isReady)
+        {
+            clockRenderer.sprite = steamFrames[index];
+            index = (index + 1) % steamFrames.Length;
+
+            yield return new WaitForSeconds(steamFrameRate);
+        }
     }
 
     private void SpawnSoup(PlayerCarrying playerCarry)
@@ -176,14 +163,22 @@ public class CookingPot : MonoBehaviour
 
         playerCarry.TryCollectSpecific(soup);
 
-        Debug.Log("Sopa entregue ao jogador.");
-
         isReady = false;
         resultSoupPrefab = null;
         currentIngredients.Clear();
 
-        if (visualIndicator != null)
-            visualIndicator.enabled = false;
+        if (steamCoroutine != null)
+            StopCoroutine(steamCoroutine);
+
+
+        if (clockRenderer != null)
+            clockRenderer.gameObject.SetActive(false);
+    }
+
+    private void PlayReadySound()
+    {
+        if (audioSource != null && soupReadySound != null)
+            audioSource.PlayOneShot(soupReadySound);
     }
 
     private bool IsValidIngredient(IngredientType type)

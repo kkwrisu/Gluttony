@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0065317154, y: -0.18652904}
+  m_Offset: {x: -0.0014734268, y: -0.070191026}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,39 +76,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7256603, y: 0.5204723}
+  m_Size: {x: 0.7357769, y: 0.6317518}
   m_EdgeRadius: 0
---- !u!1 &4031542960811202971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 193356230920498181}
-  m_Layer: 7
-  m_Name: PlacePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &193356230920498181
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031542960811202971}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2716605392695164458}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8405690762554650781
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,10 +90,10 @@ GameObject:
   - component: {fileID: 7958836904238382196}
   - component: {fileID: 1835278885468595527}
   - component: {fileID: 4978764794906010296}
-  - component: {fileID: 1509858293005438106}
+  - component: {fileID: 4191578101832746178}
   m_Layer: 7
-  m_Name: Bancada
-  m_TagString: Panela
+  m_Name: Livro de Receitas
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,12 +107,11 @@ Transform:
   m_GameObject: {fileID: 8405690762554650781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.44, y: -2.69, z: 0}
+  m_LocalPosition: {x: 7.1752224, y: -4.1551714, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7829678358786325352}
-  - {fileID: 193356230920498181}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7958836904238382196
@@ -195,7 +163,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 6b7710fa372746b4b9993d2125f9acb9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc05b8080a2ac1c40b395f33a096613b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -278,7 +246,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9952512, y: 1.1876233}
   m_EdgeRadius: 0
---- !u!114 &1509858293005438106
+--- !u!114 &4191578101832746178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,7 +255,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 8405690762554650781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f5c5c1a6482bb4887b7813409e140a, type: 3}
+  m_Script: {fileID: 11500000, guid: ed1ec547df56ee649bf963e49891cdc4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Workbench
-  placePoint: {fileID: 193356230920498181}
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  dialogueManager: {fileID: 0}
+  requestedSoup: 0
+  requestDialogue:
+  - '*Livro de Receitas*'
+  - 'Sopa de Batata com Carne:
+
+    - 1 Batata
+
+    - 1 Carne
+
+    - 1 Pitada de
+    Sal'
+  - 'Sopa de Cenoura com Carne:
+
+    - 1 Cenoura
+
+    - 1 Carne
+
+    - 1 Pitada de
+    Sal'
+  - 'Sopa de Tomate com Carne:
+
+    - 1 Tomate
+
+    - 1 Carne
+
+    - 1 Pitada de
+    Sal'
+  successDialogue: []
+  wrongItemDialogue: []
+  meatPrefab: {fileID: 0}

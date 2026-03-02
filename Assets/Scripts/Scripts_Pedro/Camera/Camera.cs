@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraGulosa : MonoBehaviour
 {
     public Transform player;
     public float velocidade = 0.1f;
