@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2745249448116165581}
   - component: {fileID: 3914317411365387782}
   - component: {fileID: 3807317435637512493}
-  m_Layer: 0
+  - component: {fileID: 4668905626037382897}
+  m_Layer: 7
   m_Name: Mendigo C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6367412537386806282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.45, y: 0.2, z: 0}
+  m_LocalPosition: {x: -2.4446933, y: -0.66671824, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -204,7 +205,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
   dialogueManager: {fileID: 0}
   requestedSoup: 8
-  requestDialogue: []
+  requestDialogue:
+  - tomate
   successDialogue: []
   wrongItemDialogue: []
   meatPrefab: {fileID: 3411264808551202194, guid: ad27ee5f35309d0459e7d4399dd0d98c, type: 3}
+--- !u!58 &4668905626037382897
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367412537386806282}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.020699799, y: 0.5}
+  m_Radius: 0.29300207
