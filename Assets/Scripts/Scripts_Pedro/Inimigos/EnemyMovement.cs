@@ -18,6 +18,7 @@ public class Enemy_Movement : MonoBehaviour
     private int currentPatrolIndex = 0;
     public float patrolWaitTime = 2f;
     private float patrolWaitTimer = 0f;
+    private bool isReturning = false;
 
     [Header("Referências")]
     public Transform attackPoint;
@@ -125,10 +126,27 @@ public class Enemy_Movement : MonoBehaviour
             if (patrolWaitTimer >= patrolWaitTime)
             {
                 patrolWaitTimer = 0f;
-                currentPatrolIndex++;
 
-                if (currentPatrolIndex >= patrolPoints.Length)
-                    currentPatrolIndex = 0;
+                if (!isReturning)
+                {
+                    currentPatrolIndex++;
+
+                    if (currentPatrolIndex >= patrolPoints.Length - 1)
+                    {
+                        currentPatrolIndex = patrolPoints.Length - 1;
+                        isReturning = true;
+                    }
+                }
+                else
+                {
+                    currentPatrolIndex--;
+
+                    if (currentPatrolIndex <= 0)
+                    {
+                        currentPatrolIndex = 0;
+                        isReturning = false;
+                    }
+                }
             }
         }
     }

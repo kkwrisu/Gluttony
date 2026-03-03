@@ -1,11 +1,27 @@
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraGulosa : MonoBehaviour
 {
     public Transform player;
     public float velocidade = 0.1f;
     public float cameraZ = -10f;
     public Vector2 offset;
+
+    [Header("Camera Bounds")]
+    public Vector2 minBounds;
+    public Vector2 maxBounds;
+
+    private Camera cam;
+    private float halfHeight;
+    private float halfWidth;
+
+    private void Start()
+    {
+        cam = GetComponent<Camera>();
+
+        halfHeight = cam.orthographicSize;
+        halfWidth = halfHeight * cam.aspect;
+    }
 
     private void LateUpdate()
     {
@@ -17,6 +33,20 @@ public class Camera : MonoBehaviour
             cameraZ
         );
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, velocidade);
+        float clampedX = Mathf.Clamp(
+            targetPos.x,
+            minBounds.x + halfWidth,
+            maxBounds.x - halfWidth
+        );
+
+        float clampedY = Mathf.Clamp(
+            targetPos.y,
+            minBounds.y + halfHeight,
+            maxBounds.y - halfHeight
+        );
+
+        Vector3 clampedPosition = new Vector3(clampedX, clampedY, cameraZ);
+
+        transform.position = Vector3.Lerp(transform.position, clampedPosition, velocidade);
     }
 }

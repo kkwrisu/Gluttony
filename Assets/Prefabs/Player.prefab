@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2207894429662564385}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64,7 +64,7 @@ Transform:
   m_GameObject: {fileID: 8745537483780379415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4, y: -0.10865, z: 0}
+  m_LocalPosition: {x: -3.02, y: 0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -273,6 +273,7 @@ MonoBehaviour:
   staminaRegen: 15
   regenDelay: 1
   runMultiplier: 1.8
+  staminaUI: {fileID: 0}
   canMove: 1
 --- !u!114 &3293122411653882357
 MonoBehaviour:
@@ -286,12 +287,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37432adb3b39d65449734475ab6283d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  currentHealth: 5
-  maxHealth: 5
+  currentHealth: 3
+  maxHealth: 3
+  carrotUI: {fileID: 0}
   isInvincible: 0
   invincibilityDuration: 1
   flashInterval: 0.1
-  ui: {fileID: 0}
   healFlashDuration: 0.3
   healColor: {r: 0.6, g: 1, b: 0.6, a: 1}
 --- !u!114 &7804247547350686815

@@ -25,11 +25,7 @@ public class CollectableItem : MonoBehaviour
     public void PickUp(Transform carryTransform)
     {
         if (rb != null)
-        {
             rb.simulated = false;
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-        }
 
         if (col != null)
             col.enabled = false;
@@ -50,12 +46,6 @@ public class CollectableItem : MonoBehaviour
         if (col != null)
             col.enabled = true;
 
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-        }
-
         if (usePing)
             StartCoroutine(Ping());
         else
@@ -65,11 +55,7 @@ public class CollectableItem : MonoBehaviour
     public void PlaceOnSurface(Transform parent)
     {
         if (rb != null)
-        {
             rb.simulated = false;
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
-        }
 
         if (col != null)
             col.enabled = false;

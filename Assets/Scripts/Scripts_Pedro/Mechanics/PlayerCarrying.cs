@@ -20,6 +20,8 @@ public class PlayerCarrying : MonoBehaviour
     private float lastInteractTime;
     private float blockInteractUntil;
 
+    private int originalSortingOrder;
+
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -71,6 +73,14 @@ public class PlayerCarrying : MonoBehaviour
         if (carriedItem == null)
         {
             carriedItem = item;
+
+            SpriteRenderer sr = item.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                originalSortingOrder = sr.sortingOrder;
+                sr.sortingOrder = 4;
+            }
+
             item.PickUp(carryPoint);
         }
         else
@@ -86,6 +96,12 @@ public class PlayerCarrying : MonoBehaviour
 
         CollectableItem oldItem = carriedItem;
 
+        SpriteRenderer oldSR = oldItem.GetComponent<SpriteRenderer>();
+        if (oldSR != null)
+        {
+            oldSR.sortingOrder = originalSortingOrder;
+        }
+
         Vector3 worldPosition = worldItem.transform.position;
 
         oldItem.transform.position = worldPosition;
@@ -94,6 +110,14 @@ public class PlayerCarrying : MonoBehaviour
         blockInteractUntil = Time.time + dropBlockTime;
 
         carriedItem = worldItem;
+
+        SpriteRenderer newSR = worldItem.GetComponent<SpriteRenderer>();
+        if (newSR != null)
+        {
+            originalSortingOrder = newSR.sortingOrder;
+            newSR.sortingOrder = 4;
+        }
+
         worldItem.PickUp(carryPoint);
     }
 
@@ -102,6 +126,14 @@ public class PlayerCarrying : MonoBehaviour
         if (item == null) return;
 
         carriedItem = item;
+
+        SpriteRenderer sr = item.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            originalSortingOrder = sr.sortingOrder;
+            sr.sortingOrder = 4;
+        }
+
         item.PickUp(carryPoint);
     }
 
@@ -116,12 +148,26 @@ public class PlayerCarrying : MonoBehaviour
         if (carriedItem != null) return;
 
         carriedItem = item;
+
+        SpriteRenderer sr = item.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            originalSortingOrder = sr.sortingOrder;
+            sr.sortingOrder = 4;
+        }
+
         item.PickUp(carryPoint);
     }
 
     public void DropItem()
     {
         if (carriedItem == null) return;
+
+        SpriteRenderer sr = carriedItem.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.sortingOrder = originalSortingOrder;
+        }
 
         carriedItem.Drop();
         carriedItem = null;

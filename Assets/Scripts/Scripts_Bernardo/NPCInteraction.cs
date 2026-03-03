@@ -19,13 +19,12 @@ public class NPCInteraction : MonoBehaviour
     [Header("Recompensa opcional:")]
     public CollectableItem meatPrefab;
 
-    private bool playerInRange = false;
     private bool orderCompleted = false;
     private bool rewardPending = false;
 
     public void Interact(PlayerCarrying player)
     {
-        if (!playerInRange || player == null)
+        if (player == null)
             return;
 
         if (dialogueManager.IsActive)
@@ -77,19 +76,6 @@ public class NPCInteraction : MonoBehaviour
         if (meatPrefab == null) return;
 
         CollectableItem meat = Instantiate(meatPrefab);
-
         player.ForcePickUp(meat);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-            playerInRange = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-            playerInRange = false;
     }
 }
