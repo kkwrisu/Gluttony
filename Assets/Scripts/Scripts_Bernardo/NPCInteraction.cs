@@ -3,16 +3,15 @@ using UnityEngine;
 public class NPCInteraction : MonoBehaviour
 {
     public DialogueManager dialogueManager;
+    public GameManager gameManager; // Arraste seu objeto GameManager aqui
 
     [Header("Pedido:")]
     public IngredientType requestedSoup;
 
     [TextArea(3, 5)]
     public string[] requestDialogue;
-
     [TextArea(3, 5)]
     public string[] successDialogue;
-
     [TextArea(3, 5)]
     public string[] wrongItemDialogue;
 
@@ -24,8 +23,7 @@ public class NPCInteraction : MonoBehaviour
 
     public void Interact(PlayerCarrying player)
     {
-        if (player == null)
-            return;
+        if (player == null) return;
 
         if (dialogueManager.IsActive)
         {
@@ -36,7 +34,6 @@ public class NPCInteraction : MonoBehaviour
                 GiveReward(player);
                 rewardPending = false;
             }
-
             return;
         }
 
@@ -58,13 +55,15 @@ public class NPCInteraction : MonoBehaviour
                 orderCompleted = true;
                 rewardPending = true;
 
+                // Avisa o GameManager que a entrega foi feita
+                if (gameManager != null) gameManager.IncrementarEntregas();
+
                 dialogueManager.StartDialogue(successDialogue);
             }
             else
             {
                 dialogueManager.StartDialogue(wrongItemDialogue);
             }
-
             return;
         }
 
@@ -74,7 +73,6 @@ public class NPCInteraction : MonoBehaviour
     private void GiveReward(PlayerCarrying player)
     {
         if (meatPrefab == null) return;
-
         CollectableItem meat = Instantiate(meatPrefab);
         player.ForcePickUp(meat);
     }
