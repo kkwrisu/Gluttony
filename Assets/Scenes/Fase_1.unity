@@ -47995,11 +47995,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978764794906010296, guid: 130944870282455468632b742b068f02, type: 3}
       propertyPath: m_Size.x
-      value: 0.41696405
+      value: 0.3431996
       objectReference: {fileID: 0}
     - target: {fileID: 4978764794906010296, guid: 130944870282455468632b742b068f02, type: 3}
       propertyPath: m_Offset.x
-      value: -0.20559037
+      value: -0.31623703
       objectReference: {fileID: 0}
     - target: {fileID: 8405690762554650781, guid: 130944870282455468632b742b068f02, type: 3}
       propertyPath: m_Name
@@ -52855,11 +52855,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978764794906010296, guid: 130944870282455468632b742b068f02, type: 3}
       propertyPath: m_Size.x
-      value: 0.18674846
+      value: 0.19781157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978764794906010296, guid: 130944870282455468632b742b068f02, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1435046
       objectReference: {fileID: 0}
     - target: {fileID: 4978764794906010296, guid: 130944870282455468632b742b068f02, type: 3}
       propertyPath: m_Offset.x
-      value: 0.2886661
+      value: 0.046264336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978764794906010296, guid: 130944870282455468632b742b068f02, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.07175231
       objectReference: {fileID: 0}
     - target: {fileID: 8405690762554650781, guid: 130944870282455468632b742b068f02, type: 3}
       propertyPath: m_Name
@@ -53478,7 +53486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6025c1b2cf9154db316435bb9b1c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  dialogueManager: {fileID: 0}
+  dialogueManager: {fileID: 1877632834}
   timerText: {fileID: 0}
   timeRemaining: 180
   itensEntregues: 0
@@ -56291,6 +56299,10 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1877632834}
+    - target: {fileID: 5620006086639021059, guid: e7a2153a87e69694692f5fb0b4a0324e, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7039398814935721129, guid: e7a2153a87e69694692f5fb0b4a0324e, type: 3}
       propertyPath: m_Name
       value: "Fog\xE3o Esq"
@@ -59421,6 +59433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1389074362}
     m_Modifications:
+    - target: {fileID: 1075862179711875849, guid: 0b3dae84f123fdb42b8d06e622557d3e, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5268681752054874695, guid: 0b3dae84f123fdb42b8d06e622557d3e, type: 3}
       propertyPath: dialogueManager
       value: 
