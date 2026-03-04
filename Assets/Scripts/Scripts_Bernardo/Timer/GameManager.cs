@@ -5,7 +5,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public DialogueManager dialogueManager;
-    public TMP_Text timerText; // Arraste seu texto de relógio aqui
+    public TMP_Text timerText;
     
     [Header("Configurações")]
     public float timeRemaining = 180f;
@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // Pausa o timer se o diálogo estiver ativo
         isPaused = (dialogueManager != null && dialogueManager.IsActive);
 
         if (!isPaused && timeRemaining > 0)
