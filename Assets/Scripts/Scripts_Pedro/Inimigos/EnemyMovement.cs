@@ -247,6 +247,34 @@ public class Enemy_Movement : MonoBehaviour
     {
         enemyState = newState;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (detectionPoint != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(detectionPoint.position, chaseVisionRadius);
+        }
+
+        if (attackPoint != null)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
+
+        if (detectionPoint != null)
+        {
+            Vector3 left = Quaternion.Euler(0, 0, visionAngle) * facingDirection;
+            Vector3 right = Quaternion.Euler(0, 0, -visionAngle) * facingDirection;
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(detectionPoint.position, left * playerDetectRange);
+            Gizmos.DrawRay(detectionPoint.position, right * playerDetectRange);
+        }
+    }
 }
 
 public enum EnemyState
