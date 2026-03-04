@@ -38707,6 +38707,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -38, y: 31, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 15
+      m_TileSpriteIndex: 15
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 3
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 52
@@ -38739,7 +38749,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 5490170a86b117a4d96486a6dc34c6fb, type: 2}
   - m_RefCount: 341
     m_Data: {fileID: 11400000, guid: 7bd9e0deb1772424cbfb9a80bf4a9d64, type: 2}
-  - m_RefCount: 106
+  - m_RefCount: 107
     m_Data: {fileID: 11400000, guid: 850a70e2f48b1df489b9c6f47c9ebc10, type: 2}
   - m_RefCount: 287
     m_Data: {fileID: 11400000, guid: fc70e8ec57d956340bd6aa486ea49eec, type: 2}
@@ -38788,7 +38798,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: bc23a1922e2340b489e37959994c01ee, type: 3}
   - m_RefCount: 341
     m_Data: {fileID: 21300000, guid: aae0f3b0489fe6d45bb579e5b35d5d93, type: 3}
-  - m_RefCount: 106
+  - m_RefCount: 107
     m_Data: {fileID: 21300000, guid: 3356bab327584e840b7e6ab930df80b9, type: 3}
   - m_RefCount: 16
     m_Data: {fileID: 21300000, guid: 6d5eeba105d60c44085eef8938e2ee95, type: 3}
@@ -38807,7 +38817,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -4278602673852770820, guid: 66ec281f36f41e24ba38028f4694034e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 3500
+  - m_RefCount: 3501
     m_Data:
       e00: 1
       e01: 0
@@ -38922,7 +38932,7 @@ Tilemap:
     m_Data: {r: 1.67e-43, g: 1.67e-43, b: 1.67e-43, a: 1.67e-43}
   - m_RefCount: 0
     m_Data: {r: 1.67e-43, g: 1.67e-43, b: 1.67e-43, a: 1.67e-43}
-  - m_RefCount: 3743
+  - m_RefCount: 3744
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -46719,7 +46729,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: be406e0bb5489684baf1cbfca1da6bf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -47667,6 +47677,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99c673c67adae5f42bb64a3af0fa3860, type: 3}
+--- !u!1 &351216880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351216881}
+  m_Layer: 0
+  m_Name: d
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351216881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351216880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.82515, y: 31.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353538086
 GameObject:
   m_ObjectHideFlags: 0
@@ -50979,7 +51020,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: be406e0bb5489684baf1cbfca1da6bf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -52009,7 +52050,7 @@ Transform:
   m_GameObject: {fileID: 683400937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.78, y: 39.81, z: 0}
+  m_LocalPosition: {x: 13.78, y: 31.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64012,7 +64053,7 @@ MonoBehaviour:
   cameraZ: -10
   offset: {x: 0, y: 0}
   minBounds: {x: -38, y: -21.935}
-  maxBounds: {x: 32.63, y: 28.697}
+  maxBounds: {x: 32.63, y: 31.65}
 --- !u!1001 &1835212212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67443,3 +67484,4 @@ SceneRoots:
   - {fileID: 280098385}
   - {fileID: 681207338}
   - {fileID: 376631517}
+  - {fileID: 351216881}
