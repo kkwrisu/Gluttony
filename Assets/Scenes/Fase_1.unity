@@ -56005,7 +56005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2605566210595102689, guid: 74c76da250b6bb64db2a19c1b9bab844, type: 3}
       propertyPath: 'successDialogue.Array.data[0]'
-      value: "(enche lingui\xE7a aqui faz ela ficar bem felizinha e lembrar da filha)"
+      value: "(enche lingui\xE7a aqui faz ela ficar bem felizinha e lembrar da filha)))"
       objectReference: {fileID: 0}
     - target: {fileID: 2605566210595102689, guid: 74c76da250b6bb64db2a19c1b9bab844, type: 3}
       propertyPath: 'wrongItemDialogue.Array.data[0]'
