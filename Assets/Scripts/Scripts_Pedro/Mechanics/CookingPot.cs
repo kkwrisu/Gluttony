@@ -16,16 +16,23 @@ public class CookingPot : MonoBehaviour
     [SerializeField] private float steamFrameRate = 0.3f;
 
     [Header("Áudio")]
+    public AudioClip cookingLoopSound;
     public AudioClip soupReadySound;
     private AudioSource audioSource;
+
+    private static bool isAnyPotPlayingLoop = false;
 
     [Header("Prefabs das Sopas")]
     public CollectableItem sopaBatataCarnePrefab;
     public CollectableItem sopaCenouraCarnePrefab;
     public CollectableItem sopaTomateCarnePrefab;
 
+    [Header("Diálogo")]
+    [SerializeField] private DialogueManager dialogueManager;
+
     private bool isCooking = false;
     private bool isReady = false;
+    private bool isThisPotPlayingLoop = false;
 
     private List<IngredientType> currentIngredients = new List<IngredientType>();
     private CollectableItem resultSoupPrefab;
@@ -45,6 +52,12 @@ public class CookingPot : MonoBehaviour
         if (playerCarry == null)
             return;
 
+        if (dialogueManager != null && dialogueManager.IsActive)
+        {
+            dialogueManager.DisplayNextSentence();
+            return;
+        }
+
         if (isReady)
         {
             SpawnSoup(playerCarry);
@@ -54,12 +67,39 @@ public class CookingPot : MonoBehaviour
         if (isCooking)
             return;
 
-        if (playerCarry.IsCarryingItem())
+        if (!playerCarry.IsCarryingItem())
         {
-            CollectableItem heldItem = playerCarry.GetCarriedItem();
-            if (heldItem != null)
-                TryAddIngredient(heldItem, playerCarry);
+            ShowCurrentIngredients();
+            return;
         }
+
+        CollectableItem heldItem = playerCarry.GetCarriedItem();
+        if (heldItem != null)
+            TryAddIngredient(heldItem, playerCarry);
+    }
+
+    private void ShowCurrentIngredients()
+    {
+        if (dialogueManager == null)
+            return;
+
+        string message;
+
+        if (currentIngredients.Count == 0)
+        {
+            message = "A panela está vazia.";
+        }
+        else
+        {
+            message = "Ingredientes colocados na panela:\n";
+
+            foreach (var ingredient in currentIngredients)
+            {
+                message += "- " + ingredient.ToString() + "\n";
+            }
+        }
+
+        dialogueManager.StartDialogue(new string[] { message });
     }
 
     private void TryAddIngredient(CollectableItem item, PlayerCarrying playerCarry)
@@ -115,6 +155,16 @@ public class CookingPot : MonoBehaviour
         isCooking = true;
         isReady = false;
 
+        if (!isAnyPotPlayingLoop && audioSource != null && cookingLoopSound != null)
+        {
+            audioSource.clip = cookingLoopSound;
+            audioSource.loop = true;
+            audioSource.Play();
+
+            isAnyPotPlayingLoop = true;
+            isThisPotPlayingLoop = true;
+        }
+
         if (clockRenderer == null || clockSprites.Length == 0)
             yield break;
 
@@ -131,6 +181,15 @@ public class CookingPot : MonoBehaviour
         isCooking = false;
         isReady = true;
 
+        if (isThisPotPlayingLoop && audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+
+            isAnyPotPlayingLoop = false;
+            isThisPotPlayingLoop = false;
+        }
+
         PlayReadySound();
 
         if (steamFrames.Length > 0)
@@ -145,7 +204,6 @@ public class CookingPot : MonoBehaviour
         {
             clockRenderer.sprite = steamFrames[index];
             index = (index + 1) % steamFrames.Length;
-
             yield return new WaitForSeconds(steamFrameRate);
         }
     }
@@ -170,7 +228,6 @@ public class CookingPot : MonoBehaviour
         if (steamCoroutine != null)
             StopCoroutine(steamCoroutine);
 
-
         if (clockRenderer != null)
             clockRenderer.gameObject.SetActive(false);
     }
@@ -178,7 +235,7 @@ public class CookingPot : MonoBehaviour
     private void PlayReadySound()
     {
         if (audioSource != null && soupReadySound != null)
-            audioSource.PlayOneShot(soupReadySound);
+            AudioManager.Instance.PlaySFX(soupReadySound); ;
     }
 
     private bool IsValidIngredient(IngredientType type)

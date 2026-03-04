@@ -241,10 +241,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d9dda32ff2015c14c92b1be18e1dcb13, type: 3}
   - {fileID: 21300000, guid: 91f3846baeb393749abdbaaa2f675644, type: 3}
   steamFrameRate: 0.3
-  soupReadySound: {fileID: 0}
+  cookingLoopSound: {fileID: 8300000, guid: 068dcc61f7a0b2b4fb410d898a6b4e7f, type: 3}
+  soupReadySound: {fileID: 8300000, guid: f284ebb1df0ab6f4485e82bd65ae0150, type: 3}
   sopaBatataCarnePrefab: {fileID: 2108201976707327604, guid: a9d36277e178ec348bbf25ab020703d0, type: 3}
   sopaCenouraCarnePrefab: {fileID: 2108201976707327604, guid: 975631e0274c8894aa4dd8dfc6da2f7f, type: 3}
   sopaTomateCarnePrefab: {fileID: 2108201976707327604, guid: 950738efd158b6547be30593ba528a72, type: 3}
+  dialogueManager: {fileID: 0}
 --- !u!61 &7169807450495627330
 BoxCollider2D:
   m_ObjectHideFlags: 0

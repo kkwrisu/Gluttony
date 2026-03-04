@@ -4,7 +4,20 @@ public class Workbench : MonoBehaviour
 {
     public Transform placePoint;
 
+    [Header("Prefab Inicial (Opcional)")]
+    [SerializeField] private CollectableItem startingItemPrefab;
+
     private CollectableItem storedItem;
+
+    private void Start()
+    {
+        if (startingItemPrefab != null)
+        {
+            CollectableItem instance = Instantiate(startingItemPrefab);
+            storedItem = instance;
+            instance.PlaceOnSurface(placePoint);
+        }
+    }
 
     public void Interact(PlayerCarrying player)
     {

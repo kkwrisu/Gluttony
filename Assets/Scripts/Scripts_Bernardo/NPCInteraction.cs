@@ -3,7 +3,7 @@ using UnityEngine;
 public class NPCInteraction : MonoBehaviour
 {
     public DialogueManager dialogueManager;
-    public GameManager gameManager; // Arraste seu objeto GameManager aqui
+    public GameManager gameManager;
 
     [Header("Pedido:")]
     public IngredientType requestedSoup;
@@ -55,7 +55,6 @@ public class NPCInteraction : MonoBehaviour
                 orderCompleted = true;
                 rewardPending = true;
 
-                // Avisa o GameManager que a entrega foi feita
                 if (gameManager != null) gameManager.IncrementarEntregas();
 
                 dialogueManager.StartDialogue(successDialogue);

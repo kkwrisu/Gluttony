@@ -166,7 +166,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.92, y: 1.92}
+    oldSize: {x: 6, y: 6}
     newSize: {x: 1.92, y: 1.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -217,11 +217,11 @@ MonoBehaviour:
   attackRange: 1
   playerDetectRange: 5
   attackCooldown: 2
-  visionAngle: 15
+  visionAngle: 80
   chaseVisionRadius: 4.5
   visionBlockMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
