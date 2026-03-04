@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 037827e6446b4764a86fdd0ad50b84e3
+guid: 2fea8f8a289026940935125d8f754044
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7078261012486167090
-    second: batata (1)_0
+      213: -8180838471128945460
+    second: Lixeira_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: batata (1)_0
+      name: Lixeira_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 16
-        height: 16
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec5e3438c17f4cd90800000000000000
-      internalID: -7078261012486167090
+      spriteID: ccc628321c2d77e80800000000000000
+      internalID: -8180838471128945460
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      batata (1)_0: -7078261012486167090
+      Lixeira_0: -8180838471128945460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

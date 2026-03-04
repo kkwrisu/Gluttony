@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 037827e6446b4764a86fdd0ad50b84e3
+guid: 50a0ac0a69ee79a49982046a31089ad0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7078261012486167090
-    second: batata (1)_0
+      213: 2491285296533802181
+    second: "\xC1rvore_3_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,23 +100,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: batata (1)_0
+      name: "\xC1rvore_3_1"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c598bf79419c1f4cb0917ce71a2d5f4
+      internalID: 1364365311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore_3_2"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ec5e3438c17f4cd90800000000000000
-      internalID: -7078261012486167090
+      spriteID: 69be5eae518e2c24da700f00d064ed96
+      internalID: -1025827913
       vertices: []
       indices: 
       edges: []
@@ -133,9 +155,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      batata (1)_0: -7078261012486167090
+      "\xC1rvore_3_0": 2491285296533802181
+      "\xC1rvore_3_1": 1364365311
+      "\xC1rvore_3_2": -1025827913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
