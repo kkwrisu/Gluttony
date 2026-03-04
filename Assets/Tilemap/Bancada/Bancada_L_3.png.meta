@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 037827e6446b4764a86fdd0ad50b84e3
+guid: 7049c430ad3311846b66263d0a3bffd5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7078261012486167090
-    second: batata (1)_0
+      213: -7040800756002980016
+    second: Bancada_L_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: batata (1)_0
+      name: Bancada_L_3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec5e3438c17f4cd90800000000000000
-      internalID: -7078261012486167090
+      spriteID: 05ff324240d0a4e90800000000000000
+      internalID: -7040800756002980016
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      batata (1)_0: -7078261012486167090
+      Bancada_L_3_0: -7040800756002980016
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
