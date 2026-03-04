@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject controlsScreen;
     [SerializeField] private GameObject creditsScreen;
 
-    [Header("Transição (opcional)")]
+    [Header("Transição")]
     [SerializeField] private CanvasGroup fadeCanvas;
     [SerializeField] private float fadeSpeed = 1.5f;
 
@@ -29,9 +29,25 @@ public class MainMenuController : MonoBehaviour
 
         if (fadeCanvas != null)
         {
-            fadeCanvas.alpha = 0f;
-            fadeCanvas.gameObject.SetActive(false);
+            fadeCanvas.gameObject.SetActive(true);
+            fadeCanvas.alpha = 1f;
+            StartCoroutine(FadeIn());
         }
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float t = 1f;
+
+        while (t > 0f)
+        {
+            t -= Time.unscaledDeltaTime * fadeSpeed;
+            fadeCanvas.alpha = Mathf.Clamp01(t);
+            yield return null;
+        }
+
+        fadeCanvas.alpha = 0f;
+        fadeCanvas.gameObject.SetActive(false);
     }
 
     public void BotJogar()
@@ -50,6 +66,7 @@ public class MainMenuController : MonoBehaviour
         fadeCanvas.gameObject.SetActive(true);
 
         float t = 0f;
+
         while (t < 1f)
         {
             t += Time.unscaledDeltaTime * fadeSpeed;
