@@ -272,7 +272,7 @@ MonoBehaviour:
   staminaDrain: 25
   staminaRegen: 15
   regenDelay: 1
-  runMultiplier: 1.7
+  runMultiplier: 1.5
   staminaUI: {fileID: 0}
   canMove: 1
 --- !u!114 &3293122411653882357

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class EndGameMenuController : MonoBehaviour
 {
     [Header("Cena do Menu Principal")]
-    [SerializeField] private string mainMenuSceneName = "MenuPrincipal";
+    [SerializeField] private string mainMenuSceneName = "MenuInicial";
 
     private AudioManager audioManager;
 

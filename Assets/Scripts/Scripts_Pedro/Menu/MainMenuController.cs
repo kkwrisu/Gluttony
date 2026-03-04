@@ -36,10 +36,8 @@ public class MainMenuController : MonoBehaviour
 
     public void BotJogar()
     {
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
 
         if (fadeCanvas != null)
             StartCoroutine(FadeAndLoad());
@@ -49,7 +47,6 @@ public class MainMenuController : MonoBehaviour
 
     private IEnumerator FadeAndLoad()
     {
-
         fadeCanvas.gameObject.SetActive(true);
 
         float t = 0f;
@@ -65,35 +62,26 @@ public class MainMenuController : MonoBehaviour
 
     public void BotControles()
     {
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
 
         mainScreen.SetActive(false);
         controlsScreen.SetActive(true);
-
     }
 
     public void BotCreditos()
     {
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
 
         mainScreen.SetActive(false);
         creditsScreen.SetActive(true);
-
-
     }
 
     public void BotVoltar()
     {
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
 
         controlsScreen.SetActive(false);
         creditsScreen.SetActive(false);
@@ -102,10 +90,8 @@ public class MainMenuController : MonoBehaviour
 
     public void BotSair()
     {
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
 
         Application.Quit();
     }
