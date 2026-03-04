@@ -52,7 +52,6 @@ public class CookingPot : MonoBehaviour
         if (playerCarry == null)
             return;
 
-        // Se diálogo estiver ativo, apenas avança
         if (dialogueManager != null && dialogueManager.IsActive)
         {
             dialogueManager.DisplayNextSentence();
@@ -100,7 +99,6 @@ public class CookingPot : MonoBehaviour
             }
         }
 
-        // 🔥 AQUI ESTÁ A MUDANÇA IMPORTANTE
         dialogueManager.StartDialogue(new string[] { message }, transform);
     }
 

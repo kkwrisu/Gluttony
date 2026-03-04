@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text timerText;
 
     [Header("Configurações")]
-    [Tooltip("Tempo inicial em segundos. Pode ser alterado pelo Inspector.")]
-    public float timeRemaining = 180f; // Valor padrão, mas o do Inspector prevalecerá
+    public float timeRemaining = 180f;
     
     public int itensEntregues = 0;
     public int metaEntregas = 3;
@@ -19,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Garante que a UI comece com o tempo definido no Inspector
         UpdateTimerUI();
     }
 
@@ -27,7 +25,6 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded) return;
 
-        // Verifica se o diálogo está ativo para pausar o cronômetro
         isPaused = (dialogueManager != null && dialogueManager.IsActive);
 
         if (!isPaused)
@@ -36,13 +33,12 @@ public class GameManager : MonoBehaviour
             {
                 timeRemaining -= Time.deltaTime;
                 
-                // Impede que o tempo fique negativo
                 if (timeRemaining < 0)
                     timeRemaining = 0;
 
                 UpdateTimerUI();
             }
-            else if (!gameEnded) // Se o tempo chegou a 0
+            else if (!gameEnded)
             {
                 gameEnded = true;
                 UpdateTimerUI();
@@ -55,7 +51,6 @@ public class GameManager : MonoBehaviour
     {
         if (timerText != null)
         {
-            // O cálculo garante que o tempo exibido respeite o valor exato de timeRemaining
             int min = Mathf.FloorToInt(timeRemaining / 60);
             int sec = Mathf.FloorToInt(timeRemaining % 60);
             timerText.text = string.Format("{0:00}:{1:00}", min, sec);

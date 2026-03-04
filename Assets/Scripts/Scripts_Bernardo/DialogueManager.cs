@@ -19,7 +19,6 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        // Faz o balão seguir o alvo (NPC ou Panela)
         if (isDialogueActive && currentTarget != null)
         {
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(currentTarget.position + offset);
