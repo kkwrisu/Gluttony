@@ -242,7 +242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -772.1688, y: 449}
+  m_AnchoredPosition: {x: -819, y: 332}
   m_SizeDelta: {x: 234.442, y: 112.361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26233427
@@ -51183,7 +51183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -769, y: 229}
+  m_AnchoredPosition: {x: -814, y: 336}
   m_SizeDelta: {x: 61.436, y: 65.277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884888952
@@ -59670,8 +59670,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -771.81226, y: 228.635}
-  m_SizeDelta: {x: 44.404297, y: 29.340012}
+  m_AnchoredPosition: {x: -817, y: 336}
+  m_SizeDelta: {x: 44.404236, y: 29.339996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863171679
 MonoBehaviour:
@@ -59745,6 +59745,7 @@ MonoBehaviour:
   dialogueText: {fileID: 356795411}
   dialoguePanel: {fileID: 1877632833}
   player: {fileID: 1694633493}
+  offset: {x: 0, y: 2, z: 0}
 --- !u!224 &1877632835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59779,7 +59780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0.392}
+  m_Color: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
