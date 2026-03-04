@@ -6,26 +6,35 @@ public class GameManager : MonoBehaviour
 {
     public DialogueManager dialogueManager;
     public TMP_Text timerText;
-    
+
     [Header("Configurações")]
-    public float timeRemaining = 180f;
+    public float timeRemaining = 360f;
     public int itensEntregues = 0;
     public int metaEntregas = 3;
-    
+
     private bool isPaused = false;
+    private bool gameEnded = false;
 
     void Update()
     {
+        if (gameEnded) return;
+
         isPaused = (dialogueManager != null && dialogueManager.IsActive);
 
         if (!isPaused && timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
+
+            if (timeRemaining < 0)
+                timeRemaining = 0;
+
             UpdateTimerUI();
         }
 
-        if (timeRemaining <= 0)
+        if (timeRemaining <= 0 && !gameEnded)
         {
+            gameEnded = true;
+            UpdateTimerUI();
             SceneManager.LoadScene("GameOver");
         }
     }
@@ -42,10 +51,13 @@ public class GameManager : MonoBehaviour
 
     public void IncrementarEntregas()
     {
+        if (gameEnded) return;
+
         itensEntregues++;
-        
+
         if (itensEntregues >= metaEntregas)
         {
+            gameEnded = true;
             SceneManager.LoadScene("Vitoria");
         }
     }
