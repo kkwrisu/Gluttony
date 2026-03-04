@@ -47677,37 +47677,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99c673c67adae5f42bb64a3af0fa3860, type: 3}
---- !u!1 &351216880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 351216881}
-  m_Layer: 0
-  m_Name: d
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &351216881
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351216880}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82515, y: 31.65, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353538086
 GameObject:
   m_ObjectHideFlags: 0
@@ -56952,6 +56921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 103226518}
     m_Modifications:
+    - target: {fileID: 31835181298517614, guid: 576d766ff3f69fa4c95e819b1a664c6d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2776082490860621467, guid: 576d766ff3f69fa4c95e819b1a664c6d, type: 3}
       propertyPath: m_Name
       value: Glutton
@@ -67484,4 +67457,3 @@ SceneRoots:
   - {fileID: 280098385}
   - {fileID: 681207338}
   - {fileID: 376631517}
-  - {fileID: 351216881}
