@@ -267,12 +267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381d76008f4d40049b93a4ba21f8c56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 2
+  moveSpeed: 3
   maxStamina: 100
   staminaDrain: 25
   staminaRegen: 15
   regenDelay: 1
-  runMultiplier: 1.8
+  runMultiplier: 1.7
   staminaUI: {fileID: 0}
   canMove: 1
 --- !u!114 &3293122411653882357

@@ -13,8 +13,12 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float musicVolume = 1f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
 
-    [Header("SFX Clips")]
+    [Header("UI SFX")]
     public AudioClip buttonClickClip;
+
+    [Header("Gameplay SFX")]
+    public AudioClip itemPickupClip;
+    public AudioClip itemDropClip;
 
     private void Awake()
     {
@@ -32,8 +36,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicSource.volume = musicVolume;
-        sfxSource.volume = sfxVolume;
+        if (musicSource != null)
+            musicSource.volume = musicVolume;
+
+        if (sfxSource != null)
+            sfxSource.volume = sfxVolume;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -45,9 +52,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     public void PlayMusic(AudioClip clip)
     {
-        if (clip == null) return;
+        if (clip == null || musicSource == null) return;
 
         if (musicSource.clip == clip) return;
 
@@ -56,27 +64,44 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+
     public void PlaySFX(AudioClip clip)
     {
-        if (clip == null) return;
+        if (clip == null || sfxSource == null) return;
 
         sfxSource.PlayOneShot(clip);
     }
+
 
     public void PlayButtonClick()
     {
         PlaySFX(buttonClickClip);
     }
 
+    public void PlayItemPickup()
+    {
+        PlaySFX(itemPickupClip);
+    }
+
+    public void PlayItemDrop()
+    {
+        PlaySFX(itemDropClip);
+    }
+
+
     public void SetMusicVolume(float value)
     {
         musicVolume = value;
-        musicSource.volume = value;
+
+        if (musicSource != null)
+            musicSource.volume = value;
     }
 
     public void SetSFXVolume(float value)
     {
         sfxVolume = value;
-        sfxSource.volume = value;
+
+        if (sfxSource != null)
+            sfxSource.volume = value;
     }
 }

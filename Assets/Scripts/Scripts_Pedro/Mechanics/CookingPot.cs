@@ -52,6 +52,7 @@ public class CookingPot : MonoBehaviour
         if (playerCarry == null)
             return;
 
+        // Se diálogo estiver ativo, apenas avança
         if (dialogueManager != null && dialogueManager.IsActive)
         {
             dialogueManager.DisplayNextSentence();
@@ -99,7 +100,8 @@ public class CookingPot : MonoBehaviour
             }
         }
 
-        dialogueManager.StartDialogue(new string[] { message });
+        // 🔥 AQUI ESTÁ A MUDANÇA IMPORTANTE
+        dialogueManager.StartDialogue(new string[] { message }, transform);
     }
 
     private void TryAddIngredient(CollectableItem item, PlayerCarrying playerCarry)
@@ -235,7 +237,7 @@ public class CookingPot : MonoBehaviour
     private void PlayReadySound()
     {
         if (audioSource != null && soupReadySound != null)
-            AudioManager.Instance.PlaySFX(soupReadySound); ;
+            AudioManager.Instance.PlaySFX(soupReadySound);
     }
 
     private bool IsValidIngredient(IngredientType type)

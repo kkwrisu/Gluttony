@@ -34,6 +34,11 @@ public class CollectableItem : MonoBehaviour
         transform.position = carryTransform.position;
 
         canBeCollected = true;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayItemPickup();
+        }
     }
 
     public void Drop(bool usePing = true)
@@ -45,6 +50,11 @@ public class CollectableItem : MonoBehaviour
 
         if (col != null)
             col.enabled = true;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayItemDrop();
+        }
 
         if (usePing)
             StartCoroutine(Ping());
