@@ -53495,55 +53495,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6801061953124349944, guid: 576d766ff3f69fa4c95e819b1a664c6d, type: 3}
   m_PrefabInstance: {fileID: 1114991371}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1117200455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1117200457}
-  - component: {fileID: 1117200456}
-  m_Layer: 0
-  m_Name: Manager de tempo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1117200456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117200455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6025c1b2cf9154db316435bb9b1c24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  dialogueManager: {fileID: 1877632834}
-  timerText: {fileID: 0}
-  timeRemaining: 180
-  itensEntregues: 0
-  metaEntregas: 3
---- !u!4 &1117200457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117200455}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.55611, y: 2.53421, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1128554029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6371553021545564073, guid: 00c57a2ebeeb54d4999ec1eb06a123e1, type: 3}
@@ -62295,7 +62246,6 @@ SceneRoots:
   - {fileID: 1164582388}
   - {fileID: 1742606378}
   - {fileID: 2085373498}
-  - {fileID: 1117200457}
   - {fileID: 649828829}
   - {fileID: 1845024209}
   - {fileID: 133248449}
