@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6ce176b57c69851419b173a7ddf67ebc
+guid: 08909cd56b89b374ea5dd37f3e4d25be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8111381635036447280
-    second: Fonte_3_0
+      213: -2813770326969432813
+    second: Banco_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fonte_3_0
+      name: Banco_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 6
         width: 32
-        height: 24
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dd760ef0659e6f80800000000000000
-      internalID: -8111381635036447280
+      spriteID: 315c37dabca73f8d0800000000000000
+      internalID: -2813770326969432813
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fonte_3_0: -8111381635036447280
+      Banco_0: -2813770326969432813
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
