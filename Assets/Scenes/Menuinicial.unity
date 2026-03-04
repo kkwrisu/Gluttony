@@ -153,8 +153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 3.1156, y: -28.042}
+  m_SizeDelta: {x: 1658.1833, y: 853.8699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74454364
 MonoBehaviour:
@@ -178,19 +178,20 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Bernardo Theodoro: Game Designer, Programmer.
 
+
     - Daniel Barroquello:
     Composer, SFX.
 
-    - Gabriel Mezet: Artist, Level Designer, Game Designer, Narrative.
 
-    -
-    Giovana Couto: Artist
-
-    - Pedro Terezzino: Game Designer, Level Designer,
-    Programmer.
+    - Gabriel Mezet: Artist, Level Designer, Game Designer,
+    Narrative.
 
 
-    Thank you for playing!'
+    - Giovana Couto: Artist
+
+
+    - Pedro Terezzino: Game Designer,
+    Level Designer, Programmer.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -465,7 +466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &401427175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1149,7 +1150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -633, y: -162}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &957822016
@@ -1849,8 +1850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
   mainScreen: {fileID: 1281228895}
-  controlsScreen: {fileID: 692486910}
-  creditsScreen: {fileID: 198626230}
+  controlsScreen: {fileID: 1422558535}
+  creditsScreen: {fileID: 401427174}
   fadeCanvas: {fileID: 0}
   fadeSpeed: 1.5
   gameplaySceneName: Fase_1
@@ -2019,7 +2020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1422558536
 RectTransform:
   m_ObjectHideFlags: 0
