@@ -35,6 +35,10 @@ public class NPCInteraction : MonoBehaviour
             if (!dialogueManager.IsActive && rewardPending)
             {
                 GiveReward(player);
+
+                if (gameManager != null)
+                    gameManager.IncrementarEntregas();
+
                 rewardPending = false;
             }
 
@@ -59,8 +63,6 @@ public class NPCInteraction : MonoBehaviour
                 orderCompleted = true;
                 rewardPending = true;
 
-                if (gameManager != null)
-                    gameManager.IncrementarEntregas();
 
                 dialogueManager.StartDialogue(successDialogue, transform);
             }

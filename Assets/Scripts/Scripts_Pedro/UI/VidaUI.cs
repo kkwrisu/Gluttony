@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class VidaUI : MonoBehaviour
 {
-    [Header("> Sprites da Barra <")]
+    [Header("Sprites da Barra:")]
     [SerializeField] Sprite[] barras;
 
-    [Header("> UI <")]
+    [Header("UI:")]
     [SerializeField] Image barraUI;
 
     public void SetVidaMax(int hpMax)
@@ -19,10 +19,6 @@ public class VidaUI : MonoBehaviour
         if (hpAtual >= 0 && hpAtual < barras.Length)
         {
             barraUI.sprite = barras[hpAtual];
-        }
-        else
-        {
-            Debug.LogWarning($"Vida {hpAtual} fora dos limites do array!");
         }
     }
 }

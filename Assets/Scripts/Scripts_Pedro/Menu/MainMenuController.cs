@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject controlsScreen;
     [SerializeField] private GameObject creditsScreen;
 
-    [Header("Transição (opcional)")]
+    [Header("Transição")]
     [SerializeField] private CanvasGroup fadeCanvas;
     [SerializeField] private float fadeSpeed = 1.5f;
 
@@ -21,38 +21,39 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("=== MAIN MENU START ===");
-
         audioManager = AudioManager.Instance;
 
         mainScreen.SetActive(true);
         controlsScreen.SetActive(false);
         creditsScreen.SetActive(false);
 
-        Debug.Log("Main ativo: " + mainScreen.activeSelf);
-        Debug.Log("Controls ativo: " + controlsScreen.activeSelf);
-        Debug.Log("Credits ativo: " + creditsScreen.activeSelf);
-
         if (fadeCanvas != null)
         {
-            fadeCanvas.alpha = 0f;
-            fadeCanvas.gameObject.SetActive(false);
-            Debug.Log("Fade configurado e desativado.");
+            fadeCanvas.gameObject.SetActive(true);
+            fadeCanvas.alpha = 1f;
+            StartCoroutine(FadeIn());
         }
-        else
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float t = 1f;
+
+        while (t > 0f)
         {
-            Debug.Log("FadeCanvas é NULL.");
+            t -= Time.unscaledDeltaTime * fadeSpeed;
+            fadeCanvas.alpha = Mathf.Clamp01(t);
+            yield return null;
         }
+
+        fadeCanvas.alpha = 0f;
+        fadeCanvas.gameObject.SetActive(false);
     }
 
     public void BotJogar()
     {
-        Debug.Log("Botão JOGAR clicado.");
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
-            Debug.Log("AudioManager é NULL!");
 
         if (fadeCanvas != null)
             StartCoroutine(FadeAndLoad());
@@ -62,11 +63,10 @@ public class MainMenuController : MonoBehaviour
 
     private IEnumerator FadeAndLoad()
     {
-        Debug.Log("Iniciando Fade...");
-
         fadeCanvas.gameObject.SetActive(true);
 
         float t = 0f;
+
         while (t < 1f)
         {
             t += Time.unscaledDeltaTime * fadeSpeed;
@@ -74,68 +74,41 @@ public class MainMenuController : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("Fade completo. Carregando cena: " + gameplaySceneName);
         SceneManager.LoadScene(gameplaySceneName);
     }
 
     public void BotControles()
     {
-        Debug.Log("Botão CONTROLES clicado.");
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
-            Debug.Log("AudioManager é NULL!");
 
         mainScreen.SetActive(false);
         controlsScreen.SetActive(true);
-
-        Debug.Log("Main ativo: " + mainScreen.activeSelf);
-        Debug.Log("Controls ativo: " + controlsScreen.activeSelf);
     }
 
     public void BotCreditos()
     {
-        Debug.Log("Botão CRÉDITOS clicado.");
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
-            Debug.Log("AudioManager é NULL!");
 
         mainScreen.SetActive(false);
         creditsScreen.SetActive(true);
-
-        Debug.Log("Main ativo: " + mainScreen.activeSelf);
-        Debug.Log("Credits ativo: " + creditsScreen.activeSelf);
     }
 
     public void BotVoltar()
     {
-        Debug.Log("Botão VOLTAR clicado.");
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
-            Debug.Log("AudioManager é NULL!");
 
         controlsScreen.SetActive(false);
         creditsScreen.SetActive(false);
         mainScreen.SetActive(true);
-
-        Debug.Log("Main ativo: " + mainScreen.activeSelf);
-        Debug.Log("Controls ativo: " + controlsScreen.activeSelf);
-        Debug.Log("Credits ativo: " + creditsScreen.activeSelf);
     }
 
     public void BotSair()
     {
-        Debug.Log("Botão SAIR clicado.");
-
         if (audioManager != null)
             audioManager.PlayButtonClick();
-        else
-            Debug.Log("AudioManager é NULL!");
 
         Application.Quit();
     }

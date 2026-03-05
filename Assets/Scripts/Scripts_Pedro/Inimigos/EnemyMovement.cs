@@ -27,6 +27,7 @@ public class Enemy_Movement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Transform player;
+    private Animator anim;
 
     private float attackCooldownTimer;
     private bool canAttack = true;
@@ -37,6 +38,8 @@ public class Enemy_Movement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
         ChangeState(EnemyState.Patrolling);
     }
 
@@ -54,6 +57,32 @@ public class Enemy_Movement : MonoBehaviour
             case EnemyState.Chasing:
                 HandleChase();
                 break;
+        }
+
+        UpdateAnimation();
+    }
+
+    private void UpdateAnimation()
+    {
+        Vector2 velocity = rb.linearVelocity;
+
+        if (velocity != Vector2.zero)
+        {
+            anim.SetBool("isWalking", true);
+
+            Vector2 dir = velocity.normalized;
+
+            anim.SetFloat("InputX", dir.x);
+            anim.SetFloat("InputY", dir.y);
+
+            facingDirection = dir;
+
+            anim.SetFloat("LastInputX", facingDirection.x);
+            anim.SetFloat("LastInputY", facingDirection.y);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
     }
 
@@ -164,7 +193,8 @@ public class Enemy_Movement : MonoBehaviour
         Collider2D hit = Physics2D.OverlapCircle(
             detectionPoint.position,
             detectRange,
-            playerLayer);
+            playerLayer
+        );
 
         if (hit == null)
         {
@@ -173,6 +203,7 @@ public class Enemy_Movement : MonoBehaviour
                 player = null;
                 ChangeState(EnemyState.Patrolling);
             }
+
             return;
         }
 
@@ -193,7 +224,8 @@ public class Enemy_Movement : MonoBehaviour
                 detectionPoint.position,
                 dirToPlayer,
                 distance,
-                visionBlockMask);
+                visionBlockMask
+            );
 
             if (block.collider != null)
                 return;
@@ -216,45 +248,31 @@ public class Enemy_Movement : MonoBehaviour
         enemyState = newState;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        if (detectionPoint == null)
-            return;
-
-        Vector3 forward =
-            facingDirection == Vector2.zero ? Vector2.right : facingDirection;
-
-        if (!Application.isPlaying || enemyState == EnemyState.Patrolling)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
-
-            Vector3 leftDir =
-                Quaternion.Euler(0, 0, visionAngle) * forward;
-
-            Vector3 rightDir =
-                Quaternion.Euler(0, 0, -visionAngle) * forward;
-
-            Gizmos.color = Color.red;
-
-            Gizmos.DrawLine(
-                detectionPoint.position,
-                detectionPoint.position + leftDir * playerDetectRange);
-
-            Gizmos.DrawLine(
-                detectionPoint.position,
-                detectionPoint.position + rightDir * playerDetectRange);
-        }
-        else if (enemyState == EnemyState.Chasing)
+        if (detectionPoint != null)
         {
             Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
+
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(detectionPoint.position, chaseVisionRadius);
         }
 
         if (attackPoint != null)
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.magenta;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
+
+        if (detectionPoint != null)
+        {
+            Vector3 left = Quaternion.Euler(0, 0, visionAngle) * facingDirection;
+            Vector3 right = Quaternion.Euler(0, 0, -visionAngle) * facingDirection;
+
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawRay(detectionPoint.position, left * playerDetectRange);
+            Gizmos.DrawRay(detectionPoint.position, right * playerDetectRange);
         }
     }
 }

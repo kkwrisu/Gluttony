@@ -41,10 +41,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6801061953124349944}
   - component: {fileID: 31835181298517614}
-  - component: {fileID: 1138156240958137444}
+  - component: {fileID: 243737597300757973}
   - component: {fileID: 2414754990252722038}
   - component: {fileID: 8529003834423514727}
   - component: {fileID: 5188414497549675326}
+  - component: {fileID: 7915150494782865045}
   m_Layer: 8
   m_Name: Glutton
   m_TagString: Untagged
@@ -116,9 +117,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 7aa4eabfd466347419daeb707bd6eb2e, type: 3}
+  m_Sprite: {fileID: -4027117659193433586, guid: 30210c2b8f1ce2948ab301f64ff076ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,8 +129,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &1138156240958137444
-BoxCollider2D:
+--- !u!58 &243737597300757973
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -162,18 +163,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.011516392, y: 0.96353865}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 6, y: 6}
-    newSize: {x: 1.92, y: 1.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.46843374, y: 0.4223678}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.006638527, y: 0.8380205}
+  m_Radius: 0.5041464
 --- !u!50 &2414754990252722038
 Rigidbody2D:
   serializedVersion: 5
@@ -197,9 +188,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &8529003834423514727
 MonoBehaviour:
@@ -214,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Movement
   speed: 3
-  attackRange: 1
+  attackRange: 1.2
   playerDetectRange: 5
   attackCooldown: 2
   visionAngle: 80
@@ -249,6 +240,28 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!95 &7915150494782865045
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776082490860621467}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e38e4d27ab680341bc12389cabffb9f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5697527632080139415
 GameObject:
   m_ObjectHideFlags: 0

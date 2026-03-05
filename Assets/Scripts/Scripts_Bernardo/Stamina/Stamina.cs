@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class StaminaUI : MonoBehaviour
 {
-    public Slider staminaSlider; // Arraste o seu Slider aqui
+    public Slider staminaSlider;
 
     public void UpdateStaminaUI(float percent)
     {
