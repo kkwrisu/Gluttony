@@ -2,30 +2,29 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+    [Header("Ataque")]
     public int damage = 1;
-    public Transform attackPoint;
-    public float attackRange;
+    public float attackRange = 1.5f;
     public LayerMask playerLayer;
 
     public void Attack()
     {
-        if (attackPoint == null)
-            return;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayer);
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-
-        if (hits.Length > 0)
+        foreach (Collider2D hit in hits)
         {
-            hits[0].GetComponent<PlayerHealth>()?.ChangeHealth(-damage);
+            PlayerHealth player = hit.GetComponent<PlayerHealth>();
+
+            if (player != null)
+            {
+                player.ChangeHealth(-damage);
+            }
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
-            return;
-
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
