@@ -99,7 +99,7 @@ public class CookingPot : MonoBehaviour
             }
         }
 
-        dialogueManager.StartDialogue(new string[] { message }, transform);
+        dialogueManager.StartDialogue(new string[] { message });
     }
 
     private void TryAddIngredient(CollectableItem item, PlayerCarrying playerCarry)

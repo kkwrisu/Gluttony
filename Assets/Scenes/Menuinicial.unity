@@ -176,22 +176,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Bernardo Theodoro: Game Designer, Programmer.
+  m_text: '- Bernardo Theodoro: Game Designer, UI Programmer, Marketing.
 
 
-    - Daniel Barroquello:
-    Composer, SFX.
+    -
+    Daniel Barroquello: Composer, SFX.
 
 
-    - Gabriel Mezet: Artist, Level Designer, Game Designer,
-    Narrative.
+    - Gabriel Mezet: Artist, Level Designer,
+    Game Designer, Narrative.
 
 
     - Giovana Couto: Artist
 
 
-    - Pedro Terezzino: Game Designer,
-    Level Designer, Programmer.'
+    - Pedro Terezzino:
+    Game Designer, Level Designer, Programmer.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5ac855cfc457ec45a76f22a1ecf4189, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1036,7 +1036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604, y: -162}
+  m_AnchoredPosition: {x: -604, y: -408}
   m_SizeDelta: {x: 250.8143, y: 47.0277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &957822016
@@ -2007,7 +2007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -611, y: -162}
+  m_AnchoredPosition: {x: -611, y: -408}
   m_SizeDelta: {x: 250.8143, y: 47.0277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527407959

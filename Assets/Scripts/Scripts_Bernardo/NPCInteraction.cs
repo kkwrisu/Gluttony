@@ -47,7 +47,7 @@ public class NPCInteraction : MonoBehaviour
 
         if (orderCompleted)
         {
-            dialogueManager.StartDialogue(successDialogue, transform);
+            dialogueManager.StartDialogue(successDialogue);
             return;
         }
 
@@ -64,17 +64,17 @@ public class NPCInteraction : MonoBehaviour
                 rewardPending = true;
 
 
-                dialogueManager.StartDialogue(successDialogue, transform);
+                dialogueManager.StartDialogue(successDialogue);
             }
             else
             {
-                dialogueManager.StartDialogue(wrongItemDialogue, transform);
+                dialogueManager.StartDialogue(wrongItemDialogue);
             }
 
             return;
         }
 
-        dialogueManager.StartDialogue(requestDialogue, transform);
+        dialogueManager.StartDialogue(requestDialogue);
     }
 
     private void GiveReward(PlayerCarrying player)

@@ -4,33 +4,29 @@ using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Referências UI")]
+    public GameObject caixaDialogo;
+    public GameObject textoDialogo;
     public TextMeshProUGUI dialogueText;
-    public GameObject dialoguePanel;
 
-    [Header("Referência")]
+    [Header("Referência Player")]
     public PlayerController player;
 
-    [Header("Configuração do Balão")]
-    public Vector3 offset = new Vector3(0, 2f, 0);
-
-    private Transform currentTarget;
     private Queue<string> sentences = new Queue<string>();
     private bool isDialogueActive = false;
 
-    void Update()
+    private void Start()
     {
-        if (isDialogueActive && currentTarget != null)
-        {
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(currentTarget.position + offset);
-            dialoguePanel.transform.position = screenPosition;
-        }
+        if (caixaDialogo != null)
+            caixaDialogo.SetActive(false);
     }
 
-    public void StartDialogue(string[] lines, Transform target)
+    public void StartDialogue(string[] lines)
     {
-        dialoguePanel.SetActive(true);
+        caixaDialogo.SetActive(true);
+        textoDialogo.SetActive(true);
+
         isDialogueActive = true;
-        currentTarget = target;
 
         if (player != null)
         {
@@ -44,15 +40,16 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear();
 
         foreach (string sentence in lines)
-        {
             sentences.Enqueue(sentence);
-        }
 
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
+        if (!isDialogueActive)
+            return;
+
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -64,9 +61,9 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        dialoguePanel.SetActive(false);
+        caixaDialogo.SetActive(false);
+        textoDialogo.SetActive(false);
         isDialogueActive = false;
-        currentTarget = null;
 
         if (player != null)
             player.canMove = true;
